@@ -6,14 +6,14 @@
 }
 
 :root {
-    --primary-color: #ff0000;
+    --primary-color: #e61e25;
     --secondary-color: #ffffff;
     --dark-color: #1a1a1a;
     --gray-color: #333333;
     --bg-color: #1a1a1a;
     --text-color: #ffffff;
-    --accent-color: #ff0000;
-    --accent-color-dark: #cc0000;
+    --accent-color: #e61e25;
+    --accent-color-dark: #b31118;
     --text-muted: #666666;
     --background-alt: #333333;
 }
