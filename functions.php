@@ -160,9 +160,6 @@ function gaming_website_scripts() {
     wp_enqueue_script('gaming-website-scripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'), '1.0.0', true);
     wp_enqueue_script('gaming-website-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '1.0.0', true);
     
-    // Dark Mode Script
-    wp_enqueue_script('dark-mode', get_template_directory_uri() . '/js/dark-mode.js', array('jquery'), '1.0.0', true);
-    
     // Twitch API
     wp_enqueue_script('twitch-embed', 'https://embed.twitch.tv/embed/v1.js', array(), null, true);
 }

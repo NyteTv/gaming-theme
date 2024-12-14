@@ -85,18 +85,7 @@
                 </div>
             </div>
             <div class="contact-form">
-                <?php 
-                if (function_exists('wpcf7_contact_form')) {
-                    $contact_form_id = get_theme_mod('contact_form_id');
-                    if ($contact_form_id) {
-                        echo do_shortcode('[contact-form-7 id="' . esc_attr($contact_form_id) . '"]');
-                    } else {
-                        echo '<p>Bitte konfiguriere die Kontaktformular-ID in den Theme-Einstellungen.</p>';
-                    }
-                } else {
-                    echo '<p>Bitte installiere und aktiviere das Contact Form 7 Plugin.</p>';
-                }
-                ?>
+                <?php echo do_shortcode('[contact-form-7 id="a7cff6e" title="Kontaktformular 1"]'); ?>
             </div>
         </div>
     </div>

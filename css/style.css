@@ -2280,3 +2280,18 @@ html body .grid-items img {
         height: 40px;
     }
 }
+
+/* Blog Page Header */
+.page-header {
+    margin-top: 120px;
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.page-header .page-title {
+    font-size: 3rem;
+    color: var(--text-color);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+}
