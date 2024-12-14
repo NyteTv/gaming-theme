@@ -1,77 +1,93 @@
 <?php
-/**
- * The template for displaying single posts
- */
-
 get_header(); ?>
 
 <article class="single-post">
-    <div class="container">
-        <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-            <header class="post-header">
-                <div class="post-category">
-                    <?php
-                    $categories = get_the_category();
-                    if (!empty($categories)) {
-                        echo esc_html($categories[0]->name);
-                    }
-                    ?>
+    <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+        
+        <?php if (has_post_thumbnail()): ?>
+        <div class="post-hero">
+            <?php the_post_thumbnail('full', ['class' => 'hero-image']); ?>
+            <div class="hero-content">
+                <div class="post-meta">
+                    <div class="post-category">
+                        <?php
+                        $categories = get_the_category();
+                        if (!empty($categories)) {
+                            echo esc_html($categories[0]->name);
+                        }
+                        ?>
+                    </div>
+                    <div class="post-date">
+                        <?php echo get_the_date(); ?>
+                    </div>
                 </div>
-                
                 <h1 class="post-title"><?php the_title(); ?></h1>
                 
-                <div class="post-meta">
-                    <span class="post-date"><?php echo get_the_date(); ?></span>
-                    <span class="post-author">von <?php the_author(); ?></span>
+                <div class="post-info">
+                    <div class="author-info">
+                        <?php echo get_avatar(get_the_author_meta('ID'), 40); ?>
+                        <span><?php the_author(); ?></span>
+                    </div>
+                    <div class="reading-time">
+                        <?php
+                        $content = get_the_content();
+                        $word_count = str_word_count(strip_tags($content));
+                        $reading_time = ceil($word_count / 200); // 200 words per minute
+                        echo $reading_time . ' min read';
+                        ?>
+                    </div>
                 </div>
-            </header>
+            </div>
+        </div>
+        <?php endif; ?>
 
-            <?php if (has_post_thumbnail()) : ?>
-                <div class="post-thumbnail">
-                    <?php the_post_thumbnail('full'); ?>
-                </div>
-            <?php endif; ?>
-
+        <div class="container">
             <div class="post-content">
                 <?php the_content(); ?>
+                
+                <div class="post-tags">
+                    <?php the_tags('<span class="tag-label">Tags:</span> ', ', '); ?>
+                </div>
             </div>
 
-            <footer class="post-footer">
-                <div class="post-tags">
-                    <?php the_tags('Tags: ', ', '); ?>
+            <div class="post-footer">
+                <div class="share-buttons">
+                    <span>Share this article:</span>
+                    <a href="https://twitter.com/intent/tweet?url=<?php echo urlencode(get_permalink()); ?>&text=<?php echo urlencode(get_the_title()); ?>" target="_blank" class="share-button twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode(get_permalink()); ?>" target="_blank" class="share-button facebook">
+                        <i class="fab fa-facebook"></i>
+                    </a>
                 </div>
-                
-                <div class="post-navigation">
+            </div>
+
+            <nav class="post-navigation">
+                <div class="prev-post">
                     <?php
                     $prev_post = get_previous_post();
-                    $next_post = get_next_post();
+                    if (!empty($prev_post)) :
                     ?>
-                    
-                    <?php if (!empty($prev_post)) : ?>
-                        <a href="<?php echo get_permalink($prev_post); ?>" class="prev-post">
-                            <span class="nav-label">&laquo; Vorheriger Artikel</span>
-                            <span class="nav-title"><?php echo get_the_title($prev_post); ?></span>
-                        </a>
-                    <?php endif; ?>
-                    
-                    <?php if (!empty($next_post)) : ?>
-                        <a href="<?php echo get_permalink($next_post); ?>" class="next-post">
-                            <span class="nav-label">Nächster Artikel &raquo;</span>
-                            <span class="nav-title"><?php echo get_the_title($next_post); ?></span>
+                        <a href="<?php echo get_permalink($prev_post->ID); ?>">
+                            <span class="nav-label">Previous Post</span>
+                            <span class="nav-title"><?php echo esc_html($prev_post->post_title); ?></span>
                         </a>
                     <?php endif; ?>
                 </div>
-            </footer>
-
-            <?php
-            // If comments are open or we have at least one comment, load up the comment template.
-            if (comments_open() || get_comments_number()) :
-                comments_template();
-            endif;
-            ?>
-
-        <?php endwhile; endif; ?>
-    </div>
+                <div class="next-post">
+                    <?php
+                    $next_post = get_next_post();
+                    if (!empty($next_post)) :
+                    ?>
+                        <a href="<?php echo get_permalink($next_post->ID); ?>">
+                            <span class="nav-label">Next Post</span>
+                            <span class="nav-title"><?php echo esc_html($next_post->post_title); ?></span>
+                        </a>
+                    <?php endif; ?>
+                </div>
+            </nav>
+        </div>
+    <?php endwhile; endif; ?>
 </article>
 
 <?php get_footer(); ?>

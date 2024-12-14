@@ -42,6 +42,13 @@ add_action('after_setup_theme', 'gaming_website_setup');
 // Include custom post types
 require get_template_directory() . '/inc/post-types.php';
 
+// Register Page Templates
+function gaming_website_add_page_templates($templates) {
+    $templates['page-templates/template-blog-grid.php'] = 'Blog Grid Layout';
+    return $templates;
+}
+add_filter('theme_page_templates', 'gaming_website_add_page_templates');
+
 // Customizer Einstellungen
 function gaming_website_customize_register($wp_customize) {
     // About Section
