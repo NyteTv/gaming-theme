@@ -82,7 +82,7 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-color: var(--dark-bg);
+    background-color: #000;
     overflow: hidden;
 }
 
@@ -144,7 +144,7 @@ body {
 .btn-secondary {
     background: rgba(255, 255, 255, 0.1);
     color: #fff;
-    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .btn-secondary:hover {
@@ -1746,6 +1746,7 @@ html body .grid-items img {
     display: flex;
     align-items: center;
     justify-content: center;
+    background: #000;
 }
 
 .hero-image {
@@ -1758,19 +1759,20 @@ html body .grid-items img {
     filter: brightness(0.7);
 }
 
-.hero-content {
+.post-hero .hero-content {
     position: relative;
     z-index: 2;
     max-width: 1200px;
     width: 100%;
     margin: 0 auto;
     padding: 2rem;
+    color: #fff;
     background: linear-gradient(0deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0) 100%);
 }
 
 .content-wrapper {
     position: relative;
-    background: var(--dark-bg);
+    background: #000;
     margin-top: -100px;
     border-radius: 30px 30px 0 0;
     padding-top: 50px;
@@ -1802,6 +1804,7 @@ html body .grid-items img {
 .post-date {
     opacity: 0.8;
     font-size: 0.9rem;
+    color: #fff;
 }
 
 .post-title {
@@ -1809,6 +1812,7 @@ html body .grid-items img {
     margin: 1rem 0;
     line-height: 1.2;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    color: #fff;
 }
 
 .post-info {
@@ -1816,12 +1820,14 @@ html body .grid-items img {
     align-items: center;
     gap: 2rem;
     margin-top: 1rem;
+    color: #fff;
 }
 
 .author-info {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    color: #fff;
 }
 
 .author-info img {
@@ -1834,6 +1840,7 @@ html body .grid-items img {
 .reading-time {
     font-size: 0.9rem;
     opacity: 0.8;
+    color: #fff;
 }
 
 .post-content {
@@ -1845,10 +1852,12 @@ html body .grid-items img {
     background: rgba(255, 255, 255, 0.05);
     border-radius: 20px;
     backdrop-filter: blur(10px);
+    color: #fff;
 }
 
 .post-content p {
     margin-bottom: 1.5rem;
+    color: #fff;
 }
 
 .post-content h2, .post-content h3 {
@@ -1873,6 +1882,7 @@ html body .grid-items img {
     margin: 2rem 0;
     padding-top: 2rem;
     border-top: 1px solid rgba(255,255,255,0.1);
+    color: #fff;
 }
 
 .tag-label {
