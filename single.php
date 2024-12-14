@@ -1,12 +1,13 @@
-<?php
-get_header(); ?>
+<?php get_header(); ?>
 
 <article class="single-post">
     <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
         
-        <?php if (has_post_thumbnail()): ?>
         <div class="post-hero">
-            <?php the_post_thumbnail('full', ['class' => 'hero-image']); ?>
+            <?php if (has_post_thumbnail()): ?>
+                <?php the_post_thumbnail('full', ['class' => 'hero-image']); ?>
+            <?php endif; ?>
+            
             <div class="hero-content">
                 <div class="post-meta">
                     <div class="post-category">
@@ -21,6 +22,7 @@ get_header(); ?>
                         <?php echo get_the_date(); ?>
                     </div>
                 </div>
+                
                 <h1 class="post-title"><?php the_title(); ?></h1>
                 
                 <div class="post-info">
@@ -39,53 +41,54 @@ get_header(); ?>
                 </div>
             </div>
         </div>
-        <?php endif; ?>
 
-        <div class="container">
-            <div class="post-content">
-                <?php the_content(); ?>
-                
-                <div class="post-tags">
-                    <?php the_tags('<span class="tag-label">Tags:</span> ', ', '); ?>
+        <div class="content-wrapper">
+            <div class="container">
+                <div class="post-content">
+                    <?php the_content(); ?>
+                    
+                    <div class="post-tags">
+                        <?php the_tags('<span class="tag-label">Tags:</span> ', ', '); ?>
+                    </div>
                 </div>
-            </div>
 
-            <div class="post-footer">
-                <div class="share-buttons">
-                    <span>Share this article:</span>
-                    <a href="https://twitter.com/intent/tweet?url=<?php echo urlencode(get_permalink()); ?>&text=<?php echo urlencode(get_the_title()); ?>" target="_blank" class="share-button twitter">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode(get_permalink()); ?>" target="_blank" class="share-button facebook">
-                        <i class="fab fa-facebook"></i>
-                    </a>
-                </div>
-            </div>
-
-            <nav class="post-navigation">
-                <div class="prev-post">
-                    <?php
-                    $prev_post = get_previous_post();
-                    if (!empty($prev_post)) :
-                    ?>
-                        <a href="<?php echo get_permalink($prev_post->ID); ?>">
-                            <span class="nav-label">Previous Post</span>
-                            <span class="nav-title"><?php echo esc_html($prev_post->post_title); ?></span>
+                <div class="post-footer">
+                    <div class="share-buttons">
+                        <span>Share this article:</span>
+                        <a href="https://twitter.com/intent/tweet?url=<?php echo urlencode(get_permalink()); ?>&text=<?php echo urlencode(get_the_title()); ?>" target="_blank" class="share-button twitter">
+                            <i class="fab fa-twitter"></i>
                         </a>
-                    <?php endif; ?>
-                </div>
-                <div class="next-post">
-                    <?php
-                    $next_post = get_next_post();
-                    if (!empty($next_post)) :
-                    ?>
-                        <a href="<?php echo get_permalink($next_post->ID); ?>">
-                            <span class="nav-label">Next Post</span>
-                            <span class="nav-title"><?php echo esc_html($next_post->post_title); ?></span>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode(get_permalink()); ?>" target="_blank" class="share-button facebook">
+                            <i class="fab fa-facebook"></i>
                         </a>
-                    <?php endif; ?>
+                    </div>
                 </div>
-            </nav>
+
+                <nav class="post-navigation">
+                    <div class="prev-post">
+                        <?php
+                        $prev_post = get_previous_post();
+                        if (!empty($prev_post)) :
+                        ?>
+                            <a href="<?php echo get_permalink($prev_post->ID); ?>">
+                                <span class="nav-label">Previous Post</span>
+                                <span class="nav-title"><?php echo esc_html($prev_post->post_title); ?></span>
+                            </a>
+                        <?php endif; ?>
+                    </div>
+                    <div class="next-post">
+                        <?php
+                        $next_post = get_next_post();
+                        if (!empty($next_post)) :
+                        ?>
+                            <a href="<?php echo get_permalink($next_post->ID); ?>">
+                                <span class="nav-label">Next Post</span>
+                                <span class="nav-title"><?php echo esc_html($next_post->post_title); ?></span>
+                            </a>
+                        <?php endif; ?>
+                    </div>
+                </nav>
+            </div>
         </div>
     <?php endwhile; endif; ?>
 </article>
