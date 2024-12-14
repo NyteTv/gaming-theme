@@ -747,7 +747,6 @@ body {
 .pagination span {
     display: inline-block;
     padding: 0.5rem 1rem;
-    border-radius: 5px;
     background: var(--background-alt);
     color: var(--text-color);
     text-decoration: none;
@@ -1986,5 +1985,210 @@ html body .grid-items img {
 
     .nav-links.active {
         transform: translateY(0);
+    }
+}
+
+/* Comments Styling */
+.comments-area {
+    margin-top: 4rem;
+    padding: 2rem;
+    background: rgba(26, 26, 26, 0.6);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+}
+
+.comments-title {
+    font-size: 1.8rem;
+    color: var(--text-color);
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.comment-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.comment {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: var(--dark-color);
+    border: 1px solid var(--gray-color);
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.comment:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(230, 30, 37, 0.1);
+}
+
+.comment-author {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.comment-author .avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 1rem;
+    border: 2px solid var(--primary-color);
+}
+
+.comment-author .fn {
+    font-weight: bold;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.comment-metadata {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+
+.comment-metadata a {
+    color: var(--text-muted);
+    text-decoration: none;
+}
+
+.comment-content {
+    color: var(--text-color);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.reply {
+    text-align: right;
+}
+
+.reply a {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 0.875rem;
+    transition: background-color 0.3s ease;
+}
+
+.reply a:hover {
+    background-color: var(--accent-color-dark);
+}
+
+/* Comment Form */
+.comment-respond {
+    margin-top: 3rem;
+    padding: 2rem;
+    background: var(--dark-color);
+    border-radius: 10px;
+}
+
+.comment-reply-title {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+}
+
+.comment-form {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.comment-form label {
+    display: block;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+.comment-form input[type="text"],
+.comment-form input[type="email"],
+.comment-form input[type="url"],
+.comment-form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--gray-color);
+    border-radius: 5px;
+    color: var(--text-color);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.comment-form input[type="text"]:focus,
+.comment-form input[type="email"]:focus,
+.comment-form input[type="url"]:focus,
+.comment-form textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(230, 30, 37, 0.2);
+}
+
+.comment-form input[type="submit"] {
+    padding: 0.75rem 1.5rem;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.comment-form input[type="submit"]:hover {
+    background-color: var(--accent-color-dark);
+    transform: translateY(-2px);
+}
+
+/* Nested Comments */
+.children {
+    margin-left: 2rem;
+    margin-top: 2rem;
+    list-style: none;
+    padding-left: 0;
+    border-left: 2px solid var(--primary-color);
+}
+
+.children .comment {
+    margin-left: 1rem;
+}
+
+/* Comment Navigation */
+.comment-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem 0;
+}
+
+.nav-previous a,
+.nav-next a {
+    padding: 0.5rem 1rem;
+    background-color: var(--dark-color);
+    color: var(--text-color);
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.nav-previous a:hover,
+.nav-next a:hover {
+    background-color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+    .comments-area {
+        padding: 1rem;
+    }
+    
+    .children {
+        margin-left: 1rem;
+    }
+    
+    .comment-author .avatar {
+        width: 40px;
+        height: 40px;
     }
 }
