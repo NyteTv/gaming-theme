@@ -1,32 +1,55 @@
-<?php 
-get_header(); 
+<?php
+/**
+ * Template Name: Blog Page
+ */
+
+get_header();
 ?>
 
-<div class="container">
-    <div class="blog-section">
-        <h1>Blog & News</h1>
-        <div class="blog-grid">
-            <?php 
-            // Debug-Ausgabe
-            echo '<!-- Shortcode exists check: ' . (shortcode_exists('grid_composer') ? 'true' : 'false') . ' -->';
-            
-            if(shortcode_exists('grid_composer')) {
-                $grid_output = do_shortcode('[grid_composer id="193"]');
-                if(empty(trim($grid_output))) {
-                    echo '<p>Das Grid wurde gefunden, aber es gibt keine Posts anzuzeigen. Bitte überprüfen Sie die Grid-Einstellungen und ob Posts vorhanden sind.</p>';
-                } else {
-                    echo $grid_output;
-                }
-            } else {
-                echo '<p>Das Grid Composer Plugin ist nicht richtig installiert oder aktiviert.</p>';
-            }
-            
-            // Debug-Ausgabe für Posts
-            $posts = get_posts(array('post_type' => 'post', 'posts_per_page' => -1));
-            echo '<!-- Anzahl verfügbarer Posts: ' . count($posts) . ' -->';
-            ?>
-        </div>
-    </div>
-</div>
+<main id="primary" class="site-main">
+    <div class="grid-container">
+        <header class="page-header">
+            <h1 class="page-title"><?php the_title(); ?></h1>
+        </header>
 
-<?php get_footer(); ?>
+        <?php
+        $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+        $args = array(
+            'post_type' => 'post',
+            'posts_per_page' => 9,
+            'paged' => $paged
+        );
+        
+        $blog_query = new WP_Query($args);
+        
+        if ($blog_query->have_posts()) :
+        ?>
+            <div class="grid-items">
+                <?php
+                while ($blog_query->have_posts()) :
+                    $blog_query->the_post();
+                    get_template_part('template-parts/grid/card');
+                endwhile;
+                ?>
+            </div>
+
+            <?php
+            echo '<div class="pagination">';
+            echo paginate_links(array(
+                'total' => $blog_query->max_num_pages,
+                'current' => $paged,
+                'prev_text' => '&laquo; Zurück',
+                'next_text' => 'Weiter &raquo;'
+            ));
+            echo '</div>';
+            
+            wp_reset_postdata();
+        else :
+            get_template_part('template-parts/content', 'none');
+        endif;
+        ?>
+    </div>
+</main>
+
+<?php
+get_footer();
