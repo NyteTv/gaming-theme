@@ -60,7 +60,7 @@
                                 <i class="fab fa-twitter"></i>
                             </a>
                             <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode(get_permalink()); ?>" target="_blank" class="share-button facebook">
-                                <i class="fab fa-facebook"></i>
+                                <i class="fab fa-facebook-f"></i>
                             </a>
                         </div>
                     </div>

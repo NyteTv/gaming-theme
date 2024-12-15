@@ -156,9 +156,13 @@ add_action('customize_register', 'gaming_website_customize_register');
 // Theme Scripts und Styles
 function gaming_website_scripts() {
     wp_enqueue_style('gaming-website-style', get_stylesheet_uri());
-    wp_enqueue_style('gaming-website-main', get_template_directory_uri() . '/css/style.css', array(), '1.0.0');
-    wp_enqueue_script('gaming-website-scripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'), '1.0.0', true);
-    wp_enqueue_script('gaming-website-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '1.0.0', true);
+    wp_enqueue_style('gaming-website-custom-style', get_template_directory_uri() . '/css/style.css');
+    
+    // Font Awesome einbinden
+    wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
+    
+    wp_enqueue_script('gaming-website-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '1.0', true);
+    wp_enqueue_script('gaming-website-scripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'), '1.0', true);
     
     // Twitch API
     wp_enqueue_script('twitch-embed', 'https://embed.twitch.tv/embed/v1.js', array(), null, true);

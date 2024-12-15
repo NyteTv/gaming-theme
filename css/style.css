@@ -2534,3 +2534,54 @@ body {
     letter-spacing: 2px;
     margin-bottom: 1rem;
 }
+
+/* Share Buttons Styling */
+.share-buttons {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.share-buttons span {
+    color: var(--text-color);
+    font-size: 0.9rem;
+}
+
+.share-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.share-button:hover {
+    transform: translateY(-2px);
+    background-color: var(--accent-color);
+}
+
+.share-button i {
+    font-size: 1.2rem;
+}
+
+.share-button.twitter {
+    background-color: #1DA1F2;
+}
+
+.share-button.facebook {
+    background-color: #4267B2;
+}
+
+.share-button.twitter:hover {
+    background-color: #0d95e8;
+}
+
+.share-button.facebook:hover {
+    background-color: #365899;
+}
