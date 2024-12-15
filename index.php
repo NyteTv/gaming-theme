@@ -60,15 +60,5 @@ get_header();
     </div>
 </section>
 
-<!-- Stream Schedule -->
-<section class="stream-schedule">
-    <div class="container">
-        <h2 class="section-title">Streaming Schedule</h2>
-        <?php
-        // Hier können später dynamische Streaming-Termine eingefügt werden
-        ?>
-    </div>
-</section>
-
 <?php
 get_footer();
