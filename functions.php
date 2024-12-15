@@ -153,6 +153,14 @@ function gaming_website_customize_register($wp_customize) {
 }
 add_action('customize_register', 'gaming_website_customize_register');
 
+// Stream Schedule Display
+function display_stream_schedule() {
+    if (!is_singular('game')) {
+        get_template_part('template-parts/content', 'stream-schedule');
+    }
+}
+add_action('wp_footer', 'display_stream_schedule');
+
 // Theme Scripts und Styles
 function gaming_website_scripts() {
     wp_enqueue_style('gaming-website-style', get_stylesheet_uri());

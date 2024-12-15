@@ -1,4 +1,8 @@
-<?php get_header(); ?>
+<?php 
+// Remove stream schedule from single game pages
+remove_action('wp_footer', 'display_stream_schedule');
+get_header(); 
+?>
 
 <main class="site-main">
     <article class="single-game">
