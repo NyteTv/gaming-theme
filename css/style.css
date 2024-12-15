@@ -1825,6 +1825,8 @@ html body .grid-items img {
 
 .post-date {
     opacity: 0.8;
+    font-size: 0.9rem;
+    color: #fff;
 }
 
 .post-title {
@@ -2366,12 +2368,6 @@ body {
     border: 2px solid var(--primary-color);
 }
 
-.comment-author .fn {
-    font-weight: bold;
-    color: var(--primary-color);
-    text-decoration: none;
-}
-
 .comment-metadata {
     font-size: 0.875rem;
     color: var(--text-muted);
@@ -2584,4 +2580,189 @@ body {
 
 .share-button.facebook:hover {
     background-color: #365899;
+}
+
+/* Mobile Navigation Styles */
+.mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.95);
+    z-index: 1000;
+    padding: 2rem;
+}
+
+.mobile-menu.active {
+    display: block;
+}
+
+.mobile-menu .menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 4rem;
+}
+
+.mobile-menu .menu a {
+    color: var(--text-color);
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.mobile-menu .menu a:hover {
+    color: var(--primary-color);
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.close-menu {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 1rem;
+    }
+    
+    .menu-toggle {
+        display: block;
+    }
+    
+    .navbar .menu {
+        display: none;
+    }
+    
+    .hero-section {
+        height: auto;
+        min-height: 60vh;
+    }
+    
+    .hero-content {
+        padding: 2rem 1rem;
+    }
+    
+    .featured-games {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .featured-games {
+        grid-template-columns: 1fr;
+    }
+    
+    .post-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .footer-links {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .post-hero {
+        height: 40vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+    }
+    
+    .post-title {
+        font-size: 1.8rem;
+    }
+}
+
+/* Game Details Styling */
+.game-details {
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+}
+
+.game-progress,
+.game-platform,
+.game-status {
+    margin-bottom: 1rem;
+}
+
+.progress-label,
+.platform-label,
+.status-label {
+    display: inline-block;
+    width: 100px;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.progress-bar {
+    background-color: rgba(255, 255, 255, 0.1);
+    height: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    margin-top: 0.5rem;
+}
+
+.progress-fill {
+    background-color: var(--primary-color);
+    height: 100%;
+    transition: width 0.3s ease;
+}
+
+.progress-text {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-color);
+    font-size: 0.9rem;
+}
+
+.platform-value,
+.status-value {
+    color: var(--text-color);
+    background-color: var(--primary-color);
+    padding: 0.3rem 0.8rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.status-value {
+    background-color: var(--accent-color);
 }

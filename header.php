@@ -19,18 +19,16 @@
         <a href="<?php echo esc_url(home_url('/')); ?>" class="logo">NYTE</a>
     </div>
     
+    <button class="menu-toggle">
+        <i class="fas fa-bars"></i>
+    </button>
+
     <?php
-    // Hauptnavigation
-    $menu_args = array(
+    wp_nav_menu(array(
         'theme_location' => 'primary',
-        'menu_class'     => 'nav-links',
+        'menu_class'     => 'menu',
         'container'      => false,
-        'items_wrap'     => '<ul class="%2$s">%3$s</ul>',
-        'fallback_cb'    => false,
-        'link_before'    => '<span>',
-        'link_after'     => '</span>'
-    );
-    wp_nav_menu($menu_args);
+    ));
     ?>
 
     <div class="nav-toggle" id="navToggle">
@@ -39,3 +37,16 @@
         <span></span>
     </div>
 </nav>
+
+<div class="mobile-menu">
+    <button class="close-menu">
+        <i class="fas fa-times"></i>
+    </button>
+    <?php
+    wp_nav_menu(array(
+        'theme_location' => 'primary',
+        'menu_class'     => 'menu',
+        'container'      => false,
+    ));
+    ?>
+</div>

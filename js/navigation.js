@@ -10,6 +10,23 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Mobile Menü Funktionalität
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const closeMenu = document.querySelector('.close-menu');
+    
+    if (menuToggle && mobileMenu && closeMenu) {
+        menuToggle.addEventListener('click', function() {
+            mobileMenu.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        closeMenu.addEventListener('click', function() {
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    }
+
     // Smooth Scrolling für Anker-Links
     document.querySelectorAll('a[href*="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {

@@ -127,3 +127,44 @@ function gaming_website_save_game_details($post_id) {
     }
 }
 add_action('save_post_game', 'gaming_website_save_game_details');
+
+// Display game progress
+function gaming_website_display_game_progress($post_id) {
+    $progress = get_post_meta($post_id, 'game_progress', true);
+    $platform = get_post_meta($post_id, 'game_platform', true);
+    $status = get_post_meta($post_id, 'game_status', true);
+    
+    if (!empty($progress) || !empty($platform) || !empty($status)) {
+        echo '<div class="game-details">';
+        
+        if (!empty($progress)) {
+            echo '<div class="game-progress">';
+            echo '<span class="progress-label">Fortschritt:</span>';
+            echo '<div class="progress-bar">';
+            echo '<div class="progress-fill" style="width: ' . esc_attr($progress) . '%"></div>';
+            echo '<span class="progress-text">' . esc_html($progress) . '%</span>';
+            echo '</div></div>';
+        }
+        
+        if (!empty($platform)) {
+            echo '<div class="game-platform">';
+            echo '<span class="platform-label">Plattform:</span>';
+            echo '<span class="platform-value">' . esc_html(ucfirst($platform)) . '</span>';
+            echo '</div>';
+        }
+        
+        if (!empty($status)) {
+            $status_labels = array(
+                'current' => 'Aktuell',
+                'completed' => 'Abgeschlossen',
+                'planned' => 'Geplant'
+            );
+            echo '<div class="game-status">';
+            echo '<span class="status-label">Status:</span>';
+            echo '<span class="status-value">' . esc_html($status_labels[$status]) . '</span>';
+            echo '</div>';
+        }
+        
+        echo '</div>';
+    }
+}
