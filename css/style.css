@@ -25,52 +25,121 @@ body {
     color: var(--secondary-color);
 }
 
-/* Navigation */
+/* Navigation Styles */
 .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: var(--dark-color);
+    position: relative;
+}
+
+.nav-brand .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.desktop-menu {
+    display: flex;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.desktop-menu li {
+    position: relative;
+}
+
+.desktop-menu a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.desktop-menu a:hover {
+    color: var(--primary-color);
+}
+
+/* Mobile Navigation */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.mobile-menu {
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    padding: 1rem 2rem;
-    background: rgba(26, 26, 26, 0.95);
-    backdrop-filter: blur(10px);
+    height: 100vh;
+    background-color: var(--dark-color);
     z-index: 1000;
+    padding: 2rem;
+}
+
+.mobile-menu.active {
+    display: block;
+}
+
+.mobile-menu .menu {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-}
-
-.nav-brand .logo {
-    font-size: 2rem;
-    font-weight: 800;
-    color: var(--primary-color);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
-}
-
-.nav-brand .logo:hover {
-    color: var(--secondary-color);
-    text-shadow: 0 0 10px var(--primary-color);
-}
-
-.nav-links {
-    display: flex;
-    list-style: none;
     gap: 2rem;
+    margin-top: 4rem;
+    padding: 0;
+    list-style: none;
 }
 
-.nav-links a {
-    color: var(--secondary-color);
+.mobile-menu .menu a {
+    color: var(--text-color);
     text-decoration: none;
-    font-weight: 500;
+    font-size: 1.2rem;
     transition: color 0.3s ease;
 }
 
-.nav-links a:hover,
-.nav-links a.active {
+.mobile-menu .menu a:hover {
     color: var(--primary-color);
+}
+
+.close-menu {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+/* Responsive Navigation */
+@media (max-width: 1024px) {
+    .desktop-menu {
+        display: none;
+    }
+    
+    .menu-toggle {
+        display: block;
+    }
+}
+
+@media (min-width: 1025px) {
+    .mobile-menu {
+        display: none !important;
+    }
 }
 
 /* Hero Section */

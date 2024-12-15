@@ -26,16 +26,10 @@
     <?php
     wp_nav_menu(array(
         'theme_location' => 'primary',
-        'menu_class'     => 'menu',
+        'menu_class'     => 'menu desktop-menu',
         'container'      => false,
     ));
     ?>
-
-    <div class="nav-toggle" id="navToggle">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
 </nav>
 
 <div class="mobile-menu">
