@@ -59,6 +59,31 @@ body {
     text-decoration: none;
     font-size: 1rem;
     transition: color 0.3s ease;
+    padding: 0.5rem 0;
+    position: relative;
+}
+
+.desktop-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.desktop-menu a:hover {
+    color: var(--primary-color);
+}
+
+.desktop-menu a:hover::after {
+    width: 100%;
+}
+
+.desktop-menu .current-menu-item a::after {
+    width: 100%;
 }
 
 .desktop-menu a:hover {
@@ -1812,7 +1837,7 @@ html body .grid-items img {
     position: relative;
     width: 100%;
     height: 60vh;
-    min-height: 400px;
+    min-height: 500px;
     display: flex;
     align-items: flex-end;
     background-color: var(--dark-color);
@@ -2218,15 +2243,15 @@ body {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: var(--primary-color);
-    color: white;
+    background-color: var(--primary-color);
+    color: var(--text-color);
     text-decoration: none;
     transition: all 0.3s ease;
 }
 
 .share-button:hover {
     transform: translateY(-3px);
-    background: var(--accent-color-dark);
+    background-color: var(--accent-color-dark);
 }
 
 .share-button i {
@@ -2812,6 +2837,7 @@ body {
     background-color: var(--primary-color);
     height: 100%;
     transition: width 0.3s ease;
+    position: relative;
 }
 
 .progress-text {
@@ -2821,17 +2847,154 @@ body {
     transform: translateY(-50%);
     color: var(--text-color);
     font-size: 0.9rem;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .platform-value,
 .status-value {
-    color: var(--text-color);
+    display: inline-block;
+    padding: 0.5rem 1rem;
     background-color: var(--primary-color);
-    padding: 0.3rem 0.8rem;
     border-radius: 4px;
     font-size: 0.9rem;
+    font-weight: 500;
 }
 
 .status-value {
     background-color: var(--accent-color);
+}
+
+/* Single Game Styles */
+.single-game {
+    background-color: var(--dark-color);
+    min-height: 100vh;
+}
+
+.game-hero {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    min-height: 400px;
+    display: flex;
+    align-items: flex-end;
+    background-color: var(--dark-color);
+}
+
+.game-hero .hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.6;
+}
+
+.game-hero .hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding: 2rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+}
+
+.game-title {
+    font-size: 3rem;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+}
+
+.game-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    color: var(--text-color);
+}
+
+.game-details {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 2rem;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+    color: var(--text-color);
+}
+
+.game-progress,
+.game-platform,
+.game-status {
+    margin-bottom: 1.5rem;
+}
+
+.game-progress:last-child,
+.game-platform:last-child,
+.game-status:last-child {
+    margin-bottom: 0;
+}
+
+.progress-label,
+.platform-label,
+.status-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    margin-top: 0.5rem;
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+    position: relative;
+}
+
+.progress-text {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-color);
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.platform-value,
+.status-value {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: var(--primary-color);
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.status-value {
+    background-color: var(--accent-color);
+}
+
+@media (max-width: 768px) {
+    .game-title {
+        font-size: 2rem;
+    }
+    
+    .game-hero {
+        height: 40vh;
+    }
+    
+    .game-content {
+        padding: 1rem;
+    }
 }
