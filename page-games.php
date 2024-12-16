@@ -14,7 +14,6 @@ get_header(); ?>
             <h2>Aktuelle Spiele</h2>
             <div class="games-grid">
                 <?php
-                // Custom Post Type für Spiele wird noch erstellt
                 $args = array(
                     'post_type' => 'game',
                     'posts_per_page' => -1,
@@ -32,23 +31,33 @@ get_header(); ?>
                     while ($games_query->have_posts()) : $games_query->the_post();
                         $progress = get_post_meta(get_the_ID(), 'game_progress', true);
                         $platform = get_post_meta(get_the_ID(), 'game_platform', true);
+                        $is_game_of_month = get_post_meta(get_the_ID(), 'game_of_month', true);
                         ?>
-                        <div class="game-card" data-aos="fade-up">
+                        <a href="<?php the_permalink(); ?>" class="game-card" data-aos="fade-up">
                             <div class="game-image">
                                 <?php if (has_post_thumbnail()) {
                                     the_post_thumbnail('large');
                                 } ?>
                             </div>
                             <div class="game-info">
+                                <?php if ($is_game_of_month === 'yes') : ?>
+                                    <span class="badge game-of-month">Game des Monats</span>
+                                <?php endif; ?>
                                 <h3><?php the_title(); ?></h3>
-                                <p class="platform"><?php echo esc_html($platform); ?></p>
+                                <?php if ($platform || $progress) : ?>
+                                    <p>
+                                        <?php 
+                                        if ($platform) echo esc_html($platform);
+                                        if ($platform && $progress) echo ' | ';
+                                        if ($progress) echo esc_html($progress) . '%';
+                                        ?>
+                                    </p>
+                                <?php endif; ?>
                                 <div class="progress-bar">
                                     <div class="progress" style="width: <?php echo esc_attr($progress); ?>%"></div>
                                 </div>
-                                <p class="progress-text"><?php echo esc_html($progress); ?>% Complete</p>
-                                <?php the_excerpt(); ?>
                             </div>
-                        </div>
+                        </a>
                     <?php
                     endwhile;
                     wp_reset_postdata();
