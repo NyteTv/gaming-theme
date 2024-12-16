@@ -76,6 +76,50 @@ function gaming_website_customize_register($wp_customize) {
         'type'     => 'textarea',
     ));
 
+    // SEO Settings
+    $wp_customize->add_section('seo_settings', array(
+        'title'    => __('SEO Einstellungen', 'gaming-website'),
+        'priority' => 20,
+    ));
+
+    // Meta Description
+    $wp_customize->add_setting('seo_description', array(
+        'default'   => 'Gaming und Streaming Community - Let\'s Plays, Reviews und mehr',
+        'transport' => 'refresh',
+    ));
+
+    $wp_customize->add_control('seo_description', array(
+        'label'       => __('Meta Beschreibung', 'gaming-website'),
+        'description' => __('Die Beschreibung deiner Website für Suchmaschinen (max. 160 Zeichen)', 'gaming-website'),
+        'section'     => 'seo_settings',
+        'type'        => 'textarea',
+    ));
+
+    // Meta Keywords
+    $wp_customize->add_setting('seo_keywords', array(
+        'default'   => 'Gaming, Streaming, Let\'s Play, Twitch, Gaming Community',
+        'transport' => 'refresh',
+    ));
+
+    $wp_customize->add_control('seo_keywords', array(
+        'label'       => __('Meta Keywords', 'gaming-website'),
+        'description' => __('Kommagetrennte Liste von Schlüsselwörtern', 'gaming-website'),
+        'section'     => 'seo_settings',
+        'type'        => 'text',
+    ));
+
+    // OG Image
+    $wp_customize->add_setting('seo_og_image', array(
+        'default'   => '',
+        'transport' => 'refresh',
+    ));
+
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'seo_og_image', array(
+        'label'       => __('Social Media Vorschaubild', 'gaming-website'),
+        'description' => __('Dieses Bild wird angezeigt, wenn deine Website in sozialen Medien geteilt wird', 'gaming-website'),
+        'section'     => 'seo_settings',
+    )));
+
     // Social Media & Contact Section
     $wp_customize->add_section('contact_section', array(
         'title'    => __('Kontakt & Social Media', 'gaming-website'),
