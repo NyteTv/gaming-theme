@@ -2423,6 +2423,8 @@ body {
     text-decoration: none;
     color: #fff;
     display: block;
+    cursor: pointer;
+    position: relative;
 }
 
 .game-card:hover {
@@ -2434,6 +2436,7 @@ body {
     width: 100%;
     height: 200px;
     overflow: hidden;
+    position: relative;
 }
 
 .game-card .game-image img {
@@ -2467,6 +2470,27 @@ body {
     color: #ccc;
     line-height: 1.6;
     margin: 0;
+}
+
+.game-card .progress-bar {
+    margin-top: 1rem;
+}
+
+.game-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.1);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.game-card:hover::after {
+    opacity: 1;
 }
 
 @media (max-width: 768px) {
@@ -2519,6 +2543,8 @@ body {
     text-decoration: none;
     color: #fff;
     display: block;
+    cursor: pointer;
+    position: relative;
 }
 
 .game-card:hover {
@@ -2530,6 +2556,7 @@ body {
     width: 100%;
     height: 200px;
     overflow: hidden;
+    position: relative;
 }
 
 .game-card .game-image img {
@@ -2567,6 +2594,27 @@ body {
     color: #ccc;
     line-height: 1.6;
     margin: 0;
+}
+
+.game-card .progress-bar {
+    margin-top: 1rem;
+}
+
+.game-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.1);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.game-card:hover::after {
+    opacity: 1;
 }
 
 @media (max-width: 768px) {
