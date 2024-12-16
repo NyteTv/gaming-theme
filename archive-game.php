@@ -65,8 +65,8 @@ get_header(); ?>
                                             <span class="label">Fortschritt:</span>
                                             <div class="progress-bar">
                                                 <div class="progress" style="width: <?php echo esc_attr($progress); ?>%"></div>
+                                                <span class="progress-text"><?php echo esc_html($progress); ?>%</span>
                                             </div>
-                                            <span class="progress-text"><?php echo esc_html($progress); ?>%</span>
                                         </div>
                                     <?php endif; ?>
                                 </div>
@@ -80,7 +80,6 @@ get_header(); ?>
                                 $custom_fields = get_post_custom();
                                 if (!empty($custom_fields)) : ?>
                                     <div class="additional-info">
-                                        <h4>Weitere Informationen</h4>
                                         <ul>
                                             <?php foreach ($custom_fields as $key => $values) :
                                                 // Überspringe interne WordPress-Felder, bereits angezeigte Felder und Ultpgrid-Felder
