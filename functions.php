@@ -153,6 +153,126 @@ function gaming_website_customize_register($wp_customize) {
 }
 add_action('customize_register', 'gaming_website_customize_register');
 
+// Register Game Custom Fields
+function register_game_meta_boxes() {
+    add_meta_box(
+        'game_details', // Unique ID
+        'Game Details', // Box title
+        'game_details_html', // Content callback, must be of type callable
+        'game' // Post type
+    );
+}
+add_action('add_meta_boxes', 'register_game_meta_boxes');
+
+// Game Details Meta Box HTML
+function game_details_html($post) {
+    $progress = get_post_meta($post->ID, 'game_progress', true);
+    $platform = get_post_meta($post->ID, 'game_platform', true);
+    $status = get_post_meta($post->ID, 'game_status', true);
+    $is_game_of_month = get_post_meta($post->ID, 'game_of_month', true);
+    $youtube_url = get_post_meta($post->ID, 'game_youtube_url', true);
+    
+    // Add nonce for security
+    wp_nonce_field('game_details_nonce', 'game_details_nonce');
+    ?>
+    <div class="game-fields">
+        <p>
+            <label for="game_platform">Plattform:</label>
+            <input type="text" id="game_platform" name="game_platform" value="<?php echo esc_attr($platform); ?>">
+        </p>
+        
+        <p>
+            <label for="game_progress">Fortschritt (%):</label>
+            <input type="number" id="game_progress" name="game_progress" value="<?php echo esc_attr($progress); ?>" min="0" max="100">
+        </p>
+        
+        <p>
+            <label for="game_status">Status:</label>
+            <select id="game_status" name="game_status">
+                <option value="planned" <?php selected($status, 'planned'); ?>>Geplant</option>
+                <option value="current" <?php selected($status, 'current'); ?>>Aktuell</option>
+                <option value="completed" <?php selected($status, 'completed'); ?>>Abgeschlossen</option>
+            </select>
+        </p>
+        
+        <p>
+            <label for="game_of_month">Game des Monats:</label>
+            <select id="game_of_month" name="game_of_month">
+                <option value="no" <?php selected($is_game_of_month, 'no'); ?>>Nein</option>
+                <option value="yes" <?php selected($is_game_of_month, 'yes'); ?>>Ja</option>
+            </select>
+        </p>
+
+        <p>
+            <label for="game_youtube_url">YouTube Video URL:</label>
+            <input type="url" id="game_youtube_url" name="game_youtube_url" value="<?php echo esc_url($youtube_url); ?>" style="width: 100%;">
+            <small>Füge hier die vollständige YouTube-URL ein (z.B. https://www.youtube.com/watch?v=xxxx)</small>
+        </p>
+    </div>
+
+    <style>
+        .game-fields label {
+            display: inline-block;
+            min-width: 150px;
+            font-weight: bold;
+        }
+        .game-fields input[type="text"],
+        .game-fields input[type="number"],
+        .game-fields select {
+            min-width: 200px;
+        }
+        .game-fields p {
+            margin: 1em 0;
+        }
+    </style>
+    <?php
+}
+
+// Save Game Details
+function save_game_details($post_id) {
+    // Check if nonce is set
+    if (!isset($_POST['game_details_nonce'])) {
+        return;
+    }
+
+    // Verify nonce
+    if (!wp_verify_nonce($_POST['game_details_nonce'], 'game_details_nonce')) {
+        return;
+    }
+
+    // If this is an autosave, don't do anything
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+        return;
+    }
+
+    // Check user permissions
+    if (!current_user_can('edit_post', $post_id)) {
+        return;
+    }
+
+    // Save fields
+    if (isset($_POST['game_platform'])) {
+        update_post_meta($post_id, 'game_platform', sanitize_text_field($_POST['game_platform']));
+    }
+    
+    if (isset($_POST['game_progress'])) {
+        update_post_meta($post_id, 'game_progress', sanitize_text_field($_POST['game_progress']));
+    }
+    
+    if (isset($_POST['game_status'])) {
+        update_post_meta($post_id, 'game_status', sanitize_text_field($_POST['game_status']));
+    }
+    
+    if (isset($_POST['game_of_month'])) {
+        update_post_meta($post_id, 'game_of_month', sanitize_text_field($_POST['game_of_month']));
+    }
+
+    if (isset($_POST['game_youtube_url'])) {
+        update_post_meta($post_id, 'game_youtube_url', esc_url_raw($_POST['game_youtube_url']));
+    }
+}
+add_action('save_post_game', 'save_game_details');
+
 // Theme Scripts und Styles
 function gaming_website_scripts() {
     wp_enqueue_style('gaming-website-style', get_stylesheet_uri());
