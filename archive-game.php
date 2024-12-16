@@ -83,8 +83,10 @@ get_header(); ?>
                                         <h4>Weitere Informationen</h4>
                                         <ul>
                                             <?php foreach ($custom_fields as $key => $values) :
-                                                // Überspringe interne WordPress-Felder und bereits angezeigte Felder
-                                                if (substr($key, 0, 1) === '_' || in_array($key, ['game_progress', 'game_platform', 'game_of_month', 'game_status'])) continue;
+                                                // Überspringe interne WordPress-Felder, bereits angezeigte Felder und Ultpgrid-Felder
+                                                if (substr($key, 0, 1) === '_' || 
+                                                    in_array($key, ['game_progress', 'game_platform', 'game_of_month', 'game_status']) ||
+                                                    strpos($key, 'ultpgrid') !== false) continue;
                                                 ?>
                                                 <li>
                                                     <strong><?php echo esc_html(ucfirst(str_replace('_', ' ', $key))); ?>:</strong>

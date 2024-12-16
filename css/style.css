@@ -2017,8 +2017,8 @@ body {
 .post-hero .hero-content {
     position: relative;
     z-index: 2;
-    max-width: 1200px;
     width: 100%;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
 }
@@ -2183,6 +2183,9 @@ body {
     border-radius: 20px;
     font-weight: bold;
     display: inline-block;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
 }
 
 .game-progress,
@@ -2197,6 +2200,7 @@ body {
 .status-label {
     font-weight: bold;
     margin-right: 10px;
+    color: #ccc;
 }
 
 .progress-bar {
@@ -2315,7 +2319,7 @@ body {
     color: #000;
     padding: 0.5rem 1.5rem;
     border-radius: 20px;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     display: inline-block;
     text-transform: uppercase;
     font-size: 0.9rem;
@@ -2727,7 +2731,7 @@ body {
 }
 
 .games-page .page-title {
-    color: #fff;
+    color: #FF4655;
     text-align: center;
     margin-bottom: 3rem;
     font-size: 2.5rem;
