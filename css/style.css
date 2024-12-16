@@ -2230,7 +2230,7 @@ body {
     border-radius: 10px;
     overflow: hidden;
     position: relative;
-    margin-top: 5px;
+    margin-right: 0.5rem;
 }
 
 .progress-fill {
@@ -2977,4 +2977,53 @@ body {
 
 .badge.game-status.planned {
     background: linear-gradient(45deg, #9C27B0, #E91E63);
+}
+
+/* YouTube Button Styles */
+.youtube-btn {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    width: 40px;
+    height: 40px;
+    background: #FF0000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    transition: all 0.3s ease;
+    z-index: 2;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.youtube-btn:hover {
+    transform: scale(1.1);
+    background: #FF0000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.youtube-btn svg {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+}
+
+.youtube-btn:hover svg {
+    transform: scale(1.1);
+}
+
+/* Ensure the game image has proper positioning for absolute elements */
+.game-image {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.game-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
 }
