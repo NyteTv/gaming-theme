@@ -2804,159 +2804,52 @@ body {
     transition: width 0.3s ease;
 }
 
-/* Steam Achievements Section */
-.steam-achievements {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 2rem;
-    border-radius: 15px;
-}
-
-#steam-achievements-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 1.5rem;
-}
-
-/* Game of the Month Section */
-.gotm-card {
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 15px;
-    overflow: hidden;
-    padding: 2rem;
-}
-
-.gotm-image {
-    width: 100%;
-    max-height: 400px;
-    overflow: hidden;
-    border-radius: 10px;
-    margin-bottom: 2rem;
-}
-
-.gotm-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.gotm-info {
-    color: #fff;
-}
-
-.gotm-info h3 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-}
-
-@media (max-width: 768px) {
-    .games-page {
-        padding: 3rem 0;
-    }
-    
-    .games-page .page-title {
-        font-size: 2rem;
-        margin-bottom: 2rem;
-    }
-    
-    .games-page h2 {
-        font-size: 1.75rem;
-    }
-    
-    .games-page .games-grid {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-        gap: 1.5rem;
-    }
-    
-    .gotm-info h3 {
-        font-size: 1.75rem;
-    }
-}
-
-.current-games h2,
-.completed-games h2 {
-    margin-bottom: 2rem;
-    padding-left: 1.5rem;
-    color: #fff;
-    font-size: 2rem;
-}
-
-.game-card {
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 15px;
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    margin-bottom: 2rem;
-}
-
-.game-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-.game-info {
-    padding: 1.5rem;
-}
-
-.game-info h3 {
-    margin-bottom: 1rem;
-    color: #fff;
-    font-size: 1.5rem;
-}
-
-.game-details {
-    background: rgba(0, 0, 0, 0.3);
-    padding: 1.5rem;
-    border-radius: 10px;
-    margin-bottom: 1.5rem;
-}
-
-.platform, .progress-container {
-    display: flex;
-    align-items: center;
-    margin-bottom: 1rem;
-}
-
-.label {
-    flex: 0 0 120px;
-    font-weight: 500;
-    color: #fff;
-}
-
-.value {
-    color: #fff;
-    margin-left: 10px;
-}
-
-.progress-container {
-    display: flex;
-    align-items: center;
-}
-
-.progress-bar {
-    flex: 1;
-    height: 30px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 5px;
-    overflow: hidden;
-    position: relative;
-    margin-left: 10px;
-}
-
-.progress {
-    height: 100%;
-    background: #4CAF50;
-    transition: width 0.3s ease;
-    border-radius: 5px;
-    position: relative;
-}
-
-.progress-text {
+/* Game Status Badge Styles */
+.badge.game-status {
     position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #fff;
+    top: 1rem;
+    left: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.8rem;
+    z-index: 1;
+}
+
+.badge.game-status.current {
+    background: linear-gradient(45deg, #4CAF50, #8BC34A);
+    color: white;
+}
+
+.badge.game-status.completed {
+    background: linear-gradient(45deg, #2196F3, #03A9F4);
+    color: white;
+}
+
+.badge.game-status.planned {
+    background: linear-gradient(45deg, #9C27B0, #E91E63);
+    color: white;
+}
+
+/* Game of Month Badge */
+.badge.game-of-month {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: linear-gradient(45deg, #FF4655, #FF8F00);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
     font-weight: 500;
     z-index: 1;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Games Grid Layout */
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem 0;
 }
