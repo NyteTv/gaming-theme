@@ -27,6 +27,13 @@ get_header(); ?>
                 );
                 $games_query = new WP_Query($args);
 
+                // Debug-Ausgabe
+                echo '<!-- Debug: ';
+                echo 'Found Posts: ' . $games_query->found_posts . "\n";
+                echo 'Query vars: ';
+                print_r($games_query->query_vars);
+                echo ' -->';
+
                 if ($games_query->have_posts()) :
                     while ($games_query->have_posts()) : $games_query->the_post();
                         $progress = get_post_meta(get_the_ID(), 'game_progress', true);
@@ -116,6 +123,13 @@ get_header(); ?>
                     )
                 );
                 $completed_query = new WP_Query($completed_args);
+
+                // Debug-Ausgabe
+                echo '<!-- Debug: ';
+                echo 'Found Posts: ' . $completed_query->found_posts . "\n";
+                echo 'Query vars: ';
+                print_r($completed_query->query_vars);
+                echo ' -->';
 
                 if ($completed_query->have_posts()) :
                     while ($completed_query->have_posts()) : $completed_query->the_post();
