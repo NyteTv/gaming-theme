@@ -65,7 +65,7 @@ get_header(); ?>
                                             <span class="label">Fortschritt:</span>
                                             <div class="progress-bar">
                                                 <div class="progress" style="width: <?php echo esc_attr($progress); ?>%"></div>
-                                                <span class="progress-text"><?php echo esc_html($progress); ?>%</span>
+                                                <div class="progress-text"><?php echo esc_html($progress); ?>%</div>
                                             </div>
                                         </div>
                                     <?php endif; ?>
