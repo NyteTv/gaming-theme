@@ -31,7 +31,7 @@ get_header(); ?>
                     $is_game_of_month = get_post_meta(get_the_ID(), 'game_of_month', true);
                     $status = get_post_meta(get_the_ID(), 'game_status', true);
                     ?>
-                    <div class="game-card <?php if ($status === 'current') echo 'expanded'; ?>" data-aos="fade-up">
+                    <div class="game-card <?php echo esc_attr($status); ?>" data-aos="fade-up">
                         <div class="game-image">
                             <?php if (has_post_thumbnail()) {
                                 the_post_thumbnail('large');
@@ -39,21 +39,25 @@ get_header(); ?>
                             <?php if ($is_game_of_month === 'yes') : ?>
                                 <span class="badge game-of-month">Game des Monats</span>
                             <?php endif; ?>
-                            <span class="badge game-status <?php echo esc_attr($status); ?>">
-                                <?php 
-                                switch($status) {
-                                    case 'current':
-                                        echo 'Aktuell';
-                                        break;
-                                    case 'completed':
-                                        echo 'Abgeschlossen';
-                                        break;
-                                    case 'planned':
-                                        echo 'Geplant';
-                                        break;
-                                }
-                                ?>
-                            </span>
+                            <?php if ($status) : ?>
+                                <span class="badge game-status <?php echo esc_attr($status); ?>">
+                                    <?php 
+                                    switch($status) {
+                                        case 'current':
+                                            echo 'Aktuell';
+                                            break;
+                                        case 'completed':
+                                            echo 'Abgeschlossen';
+                                            break;
+                                        case 'planned':
+                                            echo 'Geplant';
+                                            break;
+                                        default:
+                                            echo esc_html($status);
+                                    }
+                                    ?>
+                                </span>
+                            <?php endif; ?>
                         </div>
                         <div class="game-info">
                             <h3><?php the_title(); ?></h3>

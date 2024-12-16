@@ -281,7 +281,6 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.3s ease;
 }
 
 .game-card:hover .game-image img {
@@ -2346,6 +2345,7 @@ body {
     text-transform: uppercase;
     font-size: 0.8rem;
     letter-spacing: 1px;
+    z-index: 1;
 }
 
 .game-progress,
@@ -2852,4 +2852,129 @@ body {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 2rem;
     padding: 2rem 0;
+}
+
+.game-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 2rem;
+}
+
+.game-image {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.game-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.game-card:hover .game-image img {
+    transform: scale(1.05);
+}
+
+.game-info {
+    padding: 1.5rem;
+}
+
+.game-info h3 {
+    margin-bottom: 1rem;
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+.game-details {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+}
+
+.platform, .progress-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.label {
+    min-width: 120px;
+    color: #fff;
+    font-weight: 500;
+}
+
+.value {
+    color: #fff;
+}
+
+.progress-container .progress-bar {
+    position: relative;
+    flex-grow: 1;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress-container .progress {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background: #4CAF50;
+    transition: width 0.3s ease;
+}
+
+.progress-container .progress-text {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+    font-weight: 500;
+    z-index: 1;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 500;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: absolute;
+    z-index: 2;
+}
+
+.badge.game-of-month {
+    top: 1rem;
+    right: 1rem;
+    background: linear-gradient(45deg, #FF4655, #FF8F00);
+    color: white;
+}
+
+.badge.game-status {
+    top: 1rem;
+    left: 1rem;
+    color: white;
+}
+
+.badge.game-status.current {
+    background: linear-gradient(45deg, #4CAF50, #8BC34A);
+}
+
+.badge.game-status.completed {
+    background: linear-gradient(45deg, #2196F3, #03A9F4);
+}
+
+.badge.game-status.planned {
+    background: linear-gradient(45deg, #9C27B0, #E91E63);
 }
