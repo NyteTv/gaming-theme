@@ -32,8 +32,18 @@ get_header(); ?>
                         $progress = get_post_meta(get_the_ID(), 'game_progress', true);
                         $platform = get_post_meta(get_the_ID(), 'game_platform', true);
                         $is_game_of_month = get_post_meta(get_the_ID(), 'game_of_month', true);
+                        $permalink = get_permalink();
                         ?>
-                        <a href="<?php the_permalink(); ?>" class="game-card" data-aos="fade-up">
+                        <!-- Debug Info -->
+                        <div style="display: none;">
+                            <?php 
+                            echo "Post ID: " . get_the_ID() . "<br>";
+                            echo "Permalink: " . $permalink . "<br>";
+                            echo "Post Type: " . get_post_type() . "<br>";
+                            ?>
+                        </div>
+                        
+                        <a href="<?php echo esc_url($permalink); ?>" class="game-card" data-aos="fade-up" onclick="window.location.href='<?php echo esc_url($permalink); ?>';" style="cursor: pointer;">
                             <div class="game-image">
                                 <?php if (has_post_thumbnail()) {
                                     the_post_thumbnail('large');
