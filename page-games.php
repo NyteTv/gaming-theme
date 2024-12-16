@@ -12,36 +12,51 @@ get_header(); ?>
         <!-- Current Games -->
         <section class="current-games">
             <h2>Aktuelle Spiele</h2>
+            <?php
+            // Debug-Ausgabe vor der Query
+            echo '<div style="background: #f5f5f5; padding: 10px; margin: 10px 0; color: #333;">';
+            echo '<strong>Debug:</strong> Starte Games Query<br>';
+            echo '</div>';
+            
+            $args = array(
+                'post_type' => 'game',
+                'posts_per_page' => -1,
+                'meta_query' => array(
+                    array(
+                        'key' => 'game_status',
+                        'value' => 'current',
+                        'compare' => '='
+                    )
+                )
+            );
+            $games_query = new WP_Query($args);
+
+            // Debug-Ausgabe nach der Query
+            echo '<div style="background: #f5f5f5; padding: 10px; margin: 10px 0; color: #333;">';
+            echo '<strong>Query Info:</strong><br>';
+            echo 'Gefundene Posts: ' . $games_query->found_posts . '<br>';
+            echo 'Query SQL: ' . $games_query->request . '<br>';
+            echo '</div>';
+            ?>
+            
             <div class="games-grid">
                 <?php
-                $args = array(
-                    'post_type' => 'game',
-                    'posts_per_page' => -1,
-                    'meta_query' => array(
-                        array(
-                            'key' => 'game_status',
-                            'value' => 'current',
-                            'compare' => '='
-                        )
-                    )
-                );
-                $games_query = new WP_Query($args);
-
                 if ($games_query->have_posts()) :
                     while ($games_query->have_posts()) : $games_query->the_post();
                         $progress = get_post_meta(get_the_ID(), 'game_progress', true);
                         $platform = get_post_meta(get_the_ID(), 'game_platform', true);
                         $is_game_of_month = get_post_meta(get_the_ID(), 'game_of_month', true);
                         $permalink = get_permalink();
+                        
+                        // Debug-Ausgabe für jeden Post
+                        echo '<div style="background: #f5f5f5; padding: 10px; margin: 10px 0; color: #333;">';
+                        echo '<strong>Game Info:</strong><br>';
+                        echo 'ID: ' . get_the_ID() . '<br>';
+                        echo 'Titel: ' . get_the_title() . '<br>';
+                        echo 'Permalink: ' . $permalink . '<br>';
+                        echo 'Post Type: ' . get_post_type() . '<br>';
+                        echo '</div>';
                         ?>
-                        <!-- Debug Info -->
-                        <div style="display: none;">
-                            <?php 
-                            echo "Post ID: " . get_the_ID() . "<br>";
-                            echo "Permalink: " . $permalink . "<br>";
-                            echo "Post Type: " . get_post_type() . "<br>";
-                            ?>
-                        </div>
                         
                         <a href="<?php echo esc_url($permalink); ?>" class="game-card" data-aos="fade-up" onclick="window.location.href='<?php echo esc_url($permalink); ?>';" style="cursor: pointer;">
                             <div class="game-image">
@@ -71,6 +86,12 @@ get_header(); ?>
                     <?php
                     endwhile;
                     wp_reset_postdata();
+                else:
+                    // Debug-Ausgabe wenn keine Posts gefunden wurden
+                    echo '<div style="background: #f5f5f5; padding: 10px; margin: 10px 0; color: #333;">';
+                    echo '<strong>Keine Spiele gefunden!</strong><br>';
+                    echo 'Bitte überprüfen Sie, ob Spiele im WordPress-Backend erstellt wurden.';
+                    echo '</div>';
                 endif;
                 ?>
             </div>
