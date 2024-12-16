@@ -150,6 +150,83 @@ function gaming_website_customize_register($wp_customize) {
         'section'  => 'discord_section',
         'type'     => 'text',
     ));
+
+    // Stream Schedule Settings
+    $wp_customize->add_section('stream_schedule_section', array(
+        'title'    => __('Stream Zeiten', 'gaming-website'),
+        'priority' => 30,
+    ));
+
+    // Monday
+    $wp_customize->add_setting('stream_monday', array(
+        'default'   => '20:00 - 23:00',
+        'transport' => 'refresh',
+    ));
+
+    $wp_customize->add_control('stream_monday', array(
+        'label'    => __('Montag', 'gaming-website'),
+        'section'  => 'stream_schedule_section',
+        'type'     => 'text',
+    ));
+
+    // Wednesday
+    $wp_customize->add_setting('stream_wednesday', array(
+        'default'   => '20:00 - 23:00',
+        'transport' => 'refresh',
+    ));
+
+    $wp_customize->add_control('stream_wednesday', array(
+        'label'    => __('Mittwoch', 'gaming-website'),
+        'section'  => 'stream_schedule_section',
+        'type'     => 'text',
+    ));
+
+    // Friday
+    $wp_customize->add_setting('stream_friday', array(
+        'default'   => '21:00 - 00:00',
+        'transport' => 'refresh',
+    ));
+
+    $wp_customize->add_control('stream_friday', array(
+        'label'    => __('Freitag', 'gaming-website'),
+        'section'  => 'stream_schedule_section',
+        'type'     => 'text',
+    ));
+
+    // Sunday
+    $wp_customize->add_setting('stream_sunday', array(
+        'default'   => '19:00 - 22:00',
+        'transport' => 'refresh',
+    ));
+
+    $wp_customize->add_control('stream_sunday', array(
+        'label'    => __('Sonntag', 'gaming-website'),
+        'section'  => 'stream_schedule_section',
+        'type'     => 'text',
+    ));
+
+    // Stream Schedule Active Days
+    $wp_customize->add_setting('stream_active_days', array(
+        'default'   => array('monday', 'wednesday', 'friday', 'sunday'),
+        'transport' => 'refresh',
+    ));
+
+    $wp_customize->add_control(new WP_Customize_Control(
+        $wp_customize,
+        'stream_active_days',
+        array(
+            'label'    => __('Aktive Stream-Tage', 'gaming-website'),
+            'section'  => 'stream_schedule_section',
+            'type'     => 'select',
+            'choices'  => array(
+                'monday'    => __('Montag', 'gaming-website'),
+                'wednesday' => __('Mittwoch', 'gaming-website'),
+                'friday'    => __('Freitag', 'gaming-website'),
+                'sunday'    => __('Sonntag', 'gaming-website'),
+            ),
+            'multiple' => true,
+        )
+    ));
 }
 add_action('customize_register', 'gaming_website_customize_register');
 

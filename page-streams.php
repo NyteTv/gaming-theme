@@ -19,17 +19,22 @@ get_header(); ?>
             <h2>Stream Zeiten</h2>
             <div class="schedule-grid">
                 <?php
-                $schedule = array(
-                    'Montag' => '20:00 - 23:00',
-                    'Mittwoch' => '20:00 - 23:00',
-                    'Freitag' => '21:00 - 00:00',
-                    'Sonntag' => '19:00 - 22:00'
+                $days = array(
+                    'monday' => array('name' => 'Montag', 'icon' => '🎮'),
+                    'wednesday' => array('name' => 'Mittwoch', 'icon' => '🎲'),
+                    'friday' => array('name' => 'Freitag', 'icon' => '🎯'),
+                    'sunday' => array('name' => 'Sonntag', 'icon' => '🏆')
                 );
 
-                foreach ($schedule as $day => $time) : ?>
+                foreach ($days as $day_key => $day_info) :
+                    $time = get_theme_mod('stream_' . $day_key, '20:00 - 23:00');
+                    ?>
                     <div class="schedule-item">
-                        <span class="day"><?php echo $day; ?></span>
-                        <span class="time"><?php echo $time; ?></span>
+                        <div class="schedule-icon"><?php echo $day_info['icon']; ?></div>
+                        <div class="schedule-content">
+                            <span class="day"><?php echo $day_info['name']; ?></span>
+                            <span class="time"><?php echo esc_html($time); ?></span>
+                        </div>
                     </div>
                 <?php endforeach; ?>
             </div>
