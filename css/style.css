@@ -3,12 +3,8 @@
     position: relative;
     background-color: var(--dark-color);
     color: var(--text-color);
-    padding: 4rem 0;
+    padding: 8rem 0 4rem 0;
     text-align: center;
-}
-
-.hero-overlay {
-    background: linear-gradient(45deg, rgba(230,30,37,0.2), rgba(26,26,26,0.9));
 }
 
 /* Game Cards */
@@ -65,12 +61,12 @@
 /* Community/Social Media Section */
 .community-section {
     background-color: var(--dark-color);
-    padding: 4rem 0;
+    padding: 8rem 0 4rem 0;
 }
 
 .social-media-section {
     background-color: var(--dark-color);
-    padding: 4rem 0;
+    padding: 8rem 0 4rem 0;
     text-align: center;
     position: relative;
 }
@@ -343,7 +339,7 @@ body {
     position: relative;
     background-color: var(--dark-color);
     color: var(--text-color);
-    padding: 4rem 0;
+    padding: 8rem 0 4rem 0;
     text-align: center;
 }
 
@@ -432,7 +428,7 @@ body {
 
 /* Games Section */
 .games-section {
-    padding: 5rem 2rem;
+    padding: 8rem 0 4rem 0;
 }
 
 .section-title {
@@ -482,7 +478,7 @@ body {
 
 /* Streams Section */
 .streams-section {
-    padding: 5rem 2rem;
+    padding: 8rem 0 4rem 0;
     background: var(--background-alt);
 }
 
@@ -519,7 +515,7 @@ body {
 /* Stream Schedule */
 .stream-schedule {
     background-color: var(--background-alt);
-    padding: 4rem 0;
+    padding: 8rem 0 4rem 0;
 }
 
 .schedule-day {
@@ -608,7 +604,7 @@ body {
 
 /* Community Section */
 .community-section {
-    padding: 5rem 2rem;
+    padding: 8rem 0 4rem 0;
     text-align: center;
 }
 
@@ -631,7 +627,7 @@ body {
 
 /* Contact Section */
 .contact-section {
-    padding: 5rem 2rem;
+    padding: 8rem 0 4rem 0;
     background: var(--background-alt);
 }
 
@@ -661,7 +657,7 @@ body {
 
 /* Blog Grid Layout */
 .blog-grid {
-    padding: 2rem 0;
+    padding: 8rem 0 4rem 0;
 }
 
 .grid-items {
@@ -1932,7 +1928,7 @@ html body .grid-items img {
 
 /* Legal Pages (Impressum & Datenschutz) */
 .legal-page {
-    padding: 4rem 0;
+    padding: 8rem 0 4rem 0;
     min-height: 80vh;
     background-color: var(--bg-color);
     color: var(--text-color);
@@ -2587,7 +2583,7 @@ body {
 
 /* Games Archive Page */
 .games-archive {
-    padding: 4rem 0;
+    padding: 8rem 0 4rem 0;
     background: var(--background-color);
     min-height: 100vh;
 }
@@ -2697,7 +2693,7 @@ body {
 
 /* Games Section on Front Page */
 .games-section {
-    padding: 4rem 0;
+    padding: 8rem 0 4rem 0;
     background: var(--background-color);
 }
 
@@ -2919,7 +2915,7 @@ body {
 
 /* Games Page */
 .games-page {
-    padding: 4rem 0;
+    padding: 8rem 0 4rem 0;
     background: var(--background-color);
     min-height: 100vh;
 }
