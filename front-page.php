@@ -45,7 +45,7 @@
 <!-- Social Media Section -->
 <section id="social-media" class="social-media-section">
     <div class="container">
-        <h2>Social Media</h2>
+        <h2 class="section-title">Social Media</h2>
         <div class="social-links">
             <?php if (get_theme_mod('social_twitch')) : ?>
                 <a href="<?php echo esc_url(get_theme_mod('social_twitch')); ?>" target="_blank" class="social-link">
