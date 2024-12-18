@@ -173,7 +173,7 @@ body {
 
 /* Hero Section */
 .hero {
-    padding-top: 50px;
+    padding-top: 180px;
     min-height: 85vh;
     display: flex;
     align-items: center;
@@ -185,11 +185,11 @@ body {
 .hero-content {
     text-align: center;
     z-index: 2;
-    padding: 1rem;
+    padding: 60px 1rem;
 }
 
 .hero-logo {
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
 }
 
 .hero-logo img {
@@ -247,12 +247,32 @@ body {
     }
 }
 
-/* Dark Mode Styles */
-.dark-mode {
-    --bg-color: #1a1a1a;
-    --text-color: #ffffff;
-    --card-bg: #2d2d2d;
-    --hover-color: #3a3a3a;
+/* Blog Page */
+.blog-header {
+    text-align: center;
+    padding-top: 180px;
+    padding-bottom: 60px;
+}
+
+.blog-header h1 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Streams Section */
+.streams-section {
+    padding: 180px 0 4rem 0;
+}
+
+.streams-header {
+    text-align: center;
+    padding-top: 180px;
+    padding-bottom: 60px;
+}
+
+.streams-header h1 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
 }
 
 /* About Section */
