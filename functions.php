@@ -121,6 +121,28 @@ function gaming_website_customize_register($wp_customize) {
         'type'     => 'url',
     ));
 
+    // Instagram URL
+    $wp_customize->add_setting('social_instagram', array(
+        'default'   => '',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control('social_instagram', array(
+        'label'    => __('Instagram URL', 'gaming-website'),
+        'section'  => 'social_media_settings',
+        'type'     => 'url',
+    ));
+
+    // TikTok URL
+    $wp_customize->add_setting('social_tiktok', array(
+        'default'   => '',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control('social_tiktok', array(
+        'label'    => __('TikTok URL', 'gaming-website'),
+        'section'  => 'social_media_settings',
+        'type'     => 'url',
+    ));
+
     // Stream Schedule Settings
     $wp_customize->add_section('stream_schedule_settings', array(
         'title'    => __('Stream Zeitplan', 'gaming-website'),
