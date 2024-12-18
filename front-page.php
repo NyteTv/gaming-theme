@@ -92,22 +92,6 @@
         <div class="contact-content">
             <div class="contact-info">
                 <p>Du hast Fragen, Anregungen oder möchtest einfach Hallo sagen? Schreib mir gerne eine Nachricht!</p>
-                <div class="social-links">
-                    <?php if ($twitch_url = get_theme_mod('twitch_url')) : ?>
-                        <a href="<?php echo esc_url($twitch_url); ?>" target="_blank" class="social-link twitch">
-                            <i class="fab fa-twitch"></i>
-                        </a>
-                    <?php endif; ?>
-                    
-                    <?php if ($youtube_url = get_theme_mod('youtube_url')) : ?>
-                        <a href="<?php echo esc_url($youtube_url); ?>" target="_blank" class="social-link youtube">
-                            <i class="fab fa-youtube"></i>
-                        </a>
-                    <?php endif; ?>
-                </div>
-            </div>
-            <div class="contact-form">
-                <?php echo do_shortcode('[contact-form-7 id="a7cff6e" title="Kontaktformular 1"]'); ?>
             </div>
         </div>
     </div>
