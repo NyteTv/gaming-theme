@@ -502,6 +502,9 @@ function gaming_website_scripts() {
     // Theme Stylesheet
     wp_enqueue_style('gaming-website-style', get_stylesheet_uri());
     
+    // Additional CSS
+    wp_enqueue_style('gaming-website-additional', get_template_directory_uri() . '/css/style.css', array('gaming-website-style'), '1.0');
+    
     // Font Awesome
     wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css', array(), '6.5.1');
     
