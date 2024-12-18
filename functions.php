@@ -82,6 +82,108 @@ function gaming_website_customize_register($wp_customize) {
         'priority' => 20,
     ));
 
+    // Social Media Settings
+    $wp_customize->add_section('social_media_settings', array(
+        'title'    => __('Social Media Links', 'gaming-website'),
+        'priority' => 25,
+    ));
+
+    // Stream Schedule Settings
+    $wp_customize->add_section('stream_schedule_settings', array(
+        'title'    => __('Stream Zeitplan', 'gaming-website'),
+        'priority' => 26,
+    ));
+
+    // Wochentage Array für die Schleife
+    $weekdays = array(
+        'monday'    => 'Montag',
+        'tuesday'   => 'Dienstag',
+        'wednesday' => 'Mittwoch',
+        'thursday'  => 'Donnerstag',
+        'friday'    => 'Freitag',
+        'saturday'  => 'Samstag',
+        'sunday'    => 'Sonntag'
+    );
+
+    foreach ($weekdays as $day_key => $day_name) {
+        // Stream aktiv für diesen Tag
+        $wp_customize->add_setting('stream_' . $day_key . '_active', array(
+            'default'   => false,
+            'transport' => 'refresh',
+        ));
+        $wp_customize->add_control('stream_' . $day_key . '_active', array(
+            'label'    => sprintf(__('%s - Stream aktiv', 'gaming-website'), $day_name),
+            'section'  => 'stream_schedule_settings',
+            'type'     => 'checkbox',
+        ));
+
+        // Stream Startzeit
+        $wp_customize->add_setting('stream_' . $day_key . '_start', array(
+            'default'   => '',
+            'transport' => 'refresh',
+        ));
+        $wp_customize->add_control('stream_' . $day_key . '_start', array(
+            'label'    => sprintf(__('%s - Startzeit', 'gaming-website'), $day_name),
+            'section'  => 'stream_schedule_settings',
+            'type'     => 'time',
+        ));
+
+        // Stream Endzeit
+        $wp_customize->add_setting('stream_' . $day_key . '_end', array(
+            'default'   => '',
+            'transport' => 'refresh',
+        ));
+        $wp_customize->add_control('stream_' . $day_key . '_end', array(
+            'label'    => sprintf(__('%s - Endzeit', 'gaming-website'), $day_name),
+            'section'  => 'stream_schedule_settings',
+            'type'     => 'time',
+        ));
+
+        // Stream Titel/Beschreibung
+        $wp_customize->add_setting('stream_' . $day_key . '_description', array(
+            'default'   => '',
+            'transport' => 'refresh',
+        ));
+        $wp_customize->add_control('stream_' . $day_key . '_description', array(
+            'label'    => sprintf(__('%s - Stream Beschreibung', 'gaming-website'), $day_name),
+            'section'  => 'stream_schedule_settings',
+            'type'     => 'text',
+        ));
+    }
+
+    // Twitch URL
+    $wp_customize->add_setting('social_twitch', array(
+        'default'   => '',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control('social_twitch', array(
+        'label'    => __('Twitch URL', 'gaming-website'),
+        'section'  => 'social_media_settings',
+        'type'     => 'url',
+    ));
+
+    // YouTube URL
+    $wp_customize->add_setting('social_youtube', array(
+        'default'   => '',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control('social_youtube', array(
+        'label'    => __('YouTube URL', 'gaming-website'),
+        'section'  => 'social_media_settings',
+        'type'     => 'url',
+    ));
+
+    // Twitter URL
+    $wp_customize->add_setting('social_twitter', array(
+        'default'   => '',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control('social_twitter', array(
+        'label'    => __('Twitter URL', 'gaming-website'),
+        'section'  => 'social_media_settings',
+        'type'     => 'url',
+    ));
+
     // Meta Description
     $wp_customize->add_setting('seo_description', array(
         'default'   => 'Gaming und Streaming Community - Let\'s Plays, Reviews und mehr',
