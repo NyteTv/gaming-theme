@@ -255,26 +255,6 @@ body {
     --hover-color: #3a3a3a;
 }
 
-/* Dark Mode Toggle Button */
-#dark-mode-toggle {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    padding: 10px;
-    border-radius: 50%;
-    border: none;
-    background: var(--card-bg);
-    cursor: pointer;
-    font-size: 20px;
-    z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    transition: transform 0.3s ease;
-}
-
-#dark-mode-toggle:hover {
-    transform: scale(1.1);
-}
-
 /* About Section */
 .about-section {
     padding: 4rem 0;
@@ -752,4 +732,28 @@ footer .copyright {
     .wpcf7-form {
         padding: 20px;
     }
+}
+
+/* Social Media Section */
+.social-media-section {
+    background-color: #333333;
+    padding: 4rem 0;
+    text-align: center;
+    position: relative;
+}
+
+.social-media-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(230,30,37,0.1), rgba(26,26,26,0.9));
+    pointer-events: none;
+}
+
+.social-media-section .container {
+    position: relative;
+    z-index: 1;
 }
