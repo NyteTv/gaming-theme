@@ -202,6 +202,7 @@ body {
     border-bottom: 1px solid var(--border-color);
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
     position: relative;
+    z-index: 1000;
 }
 
 .nav-brand .logo {
@@ -1945,6 +1946,8 @@ html body .grid-items img {
     margin-bottom: 3rem;
     font-size: 2.5rem;
     color: var(--text-color);
+    position: relative;
+    z-index: 1;
 }
 
 .legal-content {
@@ -3182,4 +3185,24 @@ body {
     height: 100%;
     object-fit: cover;
     transition: transform 0.3s ease;
+}
+
+/* Blog & News */
+.blog-header {
+    position: relative;
+    z-index: 1;
+}
+
+.blog-title {
+    font-size: 2.5rem;
+    color: var(--text-color);
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.blog-grid {
+    position: relative;
+    z-index: 1;
+    padding: 8rem 0 4rem 0;
 }
