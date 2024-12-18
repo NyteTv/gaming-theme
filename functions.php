@@ -39,6 +39,38 @@ function gaming_website_setup() {
 }
 add_action('after_setup_theme', 'gaming_website_setup');
 
+// Remove category base
+function remove_category_base() {
+    add_action('init', function() {
+        // Remove category base
+        global $wp_rewrite;
+        $wp_rewrite->categories_base = '';
+        $wp_rewrite->flush_rules();
+    });
+}
+add_action('after_setup_theme', 'remove_category_base');
+
+// Redirect old category URLs to new clean URLs
+function redirect_old_category_urls() {
+    if (is_category() && strpos($_SERVER['REQUEST_URI'], '/category/') !== false) {
+        $category = get_category(get_query_var('cat'));
+        wp_redirect(get_category_link($category->cat_ID), 301);
+        exit();
+    }
+}
+add_action('template_redirect', 'redirect_old_category_urls');
+
+// Custom rewrite rules for games
+function custom_games_rewrite_rules() {
+    add_rewrite_rule(
+        '^games/?$',
+        'index.php?pagename=games',
+        'top'
+    );
+    flush_rewrite_rules();
+}
+add_action('init', 'custom_games_rewrite_rules');
+
 // Include custom post types
 require get_template_directory() . '/inc/post-types.php';
 
