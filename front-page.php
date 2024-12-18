@@ -42,24 +42,43 @@
     </div>
 </section>
 
-<!-- Community Section -->
-<section id="community" class="community-section">
+<!-- Social Media Section -->
+<section id="social-media" class="social-media-section">
     <div class="container">
-        <h2 class="section-title"><?php echo esc_html__('Social Media', 'gaming-website'); ?></h2>
+        <h2>Social Media</h2>
         <div class="social-links">
-            <?php if (get_theme_mod('twitch_url')) : ?>
-                <a href="<?php echo esc_url(get_theme_mod('twitch_url')); ?>" target="_blank" class="social-link twitch">
+            <?php if (get_theme_mod('social_twitch')) : ?>
+                <a href="<?php echo esc_url(get_theme_mod('social_twitch')); ?>" target="_blank" class="social-link">
                     <i class="fab fa-twitch"></i>
+                    <span>Twitch</span>
                 </a>
             <?php endif; ?>
-            <?php if (get_theme_mod('youtube_url')) : ?>
-                <a href="<?php echo esc_url(get_theme_mod('youtube_url')); ?>" target="_blank" class="social-link youtube">
+            
+            <?php if (get_theme_mod('social_youtube')) : ?>
+                <a href="<?php echo esc_url(get_theme_mod('social_youtube')); ?>" target="_blank" class="social-link">
                     <i class="fab fa-youtube"></i>
+                    <span>YouTube</span>
                 </a>
             <?php endif; ?>
-            <?php if (get_theme_mod('twitter_url')) : ?>
-                <a href="<?php echo esc_url(get_theme_mod('twitter_url')); ?>" target="_blank" class="social-link twitter">
+            
+            <?php if (get_theme_mod('social_twitter')) : ?>
+                <a href="<?php echo esc_url(get_theme_mod('social_twitter')); ?>" target="_blank" class="social-link">
                     <i class="fab fa-twitter"></i>
+                    <span>Twitter</span>
+                </a>
+            <?php endif; ?>
+
+            <?php if (get_theme_mod('social_instagram')) : ?>
+                <a href="<?php echo esc_url(get_theme_mod('social_instagram')); ?>" target="_blank" class="social-link">
+                    <i class="fab fa-instagram"></i>
+                    <span>Instagram</span>
+                </a>
+            <?php endif; ?>
+
+            <?php if (get_theme_mod('social_tiktok')) : ?>
+                <a href="<?php echo esc_url(get_theme_mod('social_tiktok')); ?>" target="_blank" class="social-link">
+                    <i class="fab fa-tiktok"></i>
+                    <span>TikTok</span>
                 </a>
             <?php endif; ?>
         </div>

@@ -68,6 +68,49 @@
     padding: 4rem 0;
 }
 
+.social-media-section {
+    background-color: var(--dark-color);
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.social-media-section h2 {
+    color: var(--accent-color);
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.social-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: transform 0.3s ease, color 0.3s ease;
+    padding: 1rem;
+}
+
+.social-link:hover {
+    transform: translateY(-5px);
+    color: var(--accent-color);
+}
+
+.social-link i {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.social-link span {
+    font-size: 1rem;
+}
+
 /* Footer */
 .footer {
     background-color: var(--dark-color);
