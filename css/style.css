@@ -3235,3 +3235,73 @@ body {
 .legal-header h1 {
     margin-top: 0;
 }
+
+/* Mobile Menu Styles */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    height: 100vh;
+    background-color: var(--dark-color);
+    z-index: 1000;
+    padding: 2rem;
+    transition: right 0.3s ease-in-out;
+}
+
+.mobile-menu.active {
+    right: 0;
+}
+
+.close-menu {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .desktop-menu {
+        display: none;
+    }
+
+    .mobile-menu {
+        display: block;
+    }
+
+    .mobile-menu .menu {
+        list-style: none;
+        padding: 0;
+        margin: 2rem 0;
+    }
+
+    .mobile-menu .menu li {
+        margin: 1rem 0;
+    }
+
+    .mobile-menu .menu a {
+        color: var(--text-color);
+        text-decoration: none;
+        font-size: 1.2rem;
+        display: block;
+        padding: 0.5rem 0;
+    }
+}
