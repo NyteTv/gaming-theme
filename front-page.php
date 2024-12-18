@@ -45,7 +45,7 @@
 <!-- Community Section -->
 <section id="community" class="community-section">
     <div class="container">
-        <h2><?php echo esc_html__('Community', 'gaming-website'); ?></h2>
+        <h2 class="section-title"><?php echo esc_html__('Social Media', 'gaming-website'); ?></h2>
         <div class="social-links">
             <?php if (get_theme_mod('twitch_url')) : ?>
                 <a href="<?php echo esc_url(get_theme_mod('twitch_url')); ?>" target="_blank" class="social-link twitch">

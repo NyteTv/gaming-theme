@@ -1,3 +1,117 @@
+/* Hero Section */
+.hero {
+    position: relative;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.hero-overlay {
+    background: linear-gradient(45deg, rgba(230,30,37,0.05), rgba(255,255,255,0.1));
+}
+
+/* Game Cards */
+.game-card {
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.game-info {
+    background-color: var(--bg-color);
+    padding: 1.5rem;
+}
+
+.game-info h3 {
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+.game-info p {
+    color: var(--text-muted);
+}
+
+/* Stream Schedule */
+.stream-schedule {
+    background-color: var(--bg-color);
+    padding: 4rem 0;
+}
+
+.schedule-day {
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.schedule-day h3 {
+    color: var(--text-color);
+    margin-bottom: 1rem;
+}
+
+.stream-slot {
+    background-color: var(--hover-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 1rem;
+}
+
+/* Community/Social Media Section */
+.community-section {
+    background-color: var(--bg-color);
+    padding: 4rem 0;
+}
+
+/* Footer */
+.footer {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    padding: 3rem 0;
+    border-top: 1px solid var(--border-color);
+}
+
+.footer-section h3 {
+    color: var(--text-color);
+}
+
+.footer-section ul li a {
+    color: var(--text-muted);
+}
+
+.footer-section ul li a:hover {
+    color: var(--accent-color);
+}
+
+/* Buttons */
+.btn {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: var(--accent-color-dark);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--hover-bg);
+}
+
 /* Reset und Grundstile */
 * {
     margin: 0;
@@ -16,6 +130,9 @@
     --accent-color-dark: #b31118;
     --text-muted: #666666;
     --background-alt: #f5f5f5;
+    --card-bg: #ffffff;
+    --border-color: #e0e0e0;
+    --hover-bg: #f8f8f8;
 }
 
 body {
@@ -31,9 +148,10 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
-    background-color: var(--dark-color);
+    background-color: var(--bg-color);
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
     position: relative;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .nav-brand .logo {
@@ -76,7 +194,7 @@ body {
 }
 
 .desktop-menu a:hover {
-    color: var(--primary-color);
+    color: var(--accent-color);
 }
 
 .desktop-menu a:hover::after {
@@ -88,7 +206,7 @@ body {
 }
 
 .desktop-menu a:hover {
-    color: var(--primary-color);
+    color: var(--accent-color);
 }
 
 /* Mobile Navigation */
@@ -109,7 +227,8 @@ body {
     left: 0;
     width: 100%;
     height: 100vh;
-    background-color: var(--dark-color);
+    background-color: var(--bg-color);
+    border-left: 1px solid var(--border-color);
     z-index: 1000;
     padding: 2rem;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
@@ -263,10 +382,13 @@ body {
 }
 
 .section-title {
-    text-align: center;
     font-size: 2.5rem;
-    margin-bottom: 3rem;
-    color: var(--primary-color);
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--accent-color);
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 .games-grid {
