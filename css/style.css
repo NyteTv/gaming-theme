@@ -3,8 +3,20 @@
     position: relative;
     background-color: var(--dark-color);
     color: var(--text-color);
-    padding: 120px 0 4rem 0;
+    padding: 180px 0 4rem 0;
     text-align: center;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-content {
+    padding-top: 60px;
+}
+
+.hero-logo {
+    margin-bottom: 3rem;
 }
 
 /* Game Cards */
@@ -340,36 +352,20 @@ body {
     position: relative;
     background-color: var(--dark-color);
     color: var(--text-color);
-    padding: 120px 0 4rem 0;
+    padding: 180px 0 4rem 0;
     text-align: center;
-}
-
-.hero-content {
-    position: relative;
-    z-index: 2;
-}
-
-.hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(45deg, rgba(230,30,37,0.2), rgba(26,26,26,0.9));
-}
-
-.hero-content {
+    min-height: 100vh;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
-    min-height: 80vh;
-    padding: 2rem;
-    text-align: center;
+    justify-content: center;
+}
+
+.hero-content {
+    padding-top: 60px;
 }
 
 .hero-logo {
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
 }
 
 .cta-buttons {
@@ -479,8 +475,14 @@ body {
 
 /* Streams Section */
 .streams-section {
-    padding: 120px 0 4rem 0;
+    padding: 180px 0 4rem 0;
     background: var(--background-alt);
+}
+
+.streams-header {
+    text-align: center;
+    padding-top: 180px;
+    padding-bottom: 60px;
 }
 
 .stream-container {
@@ -3189,22 +3191,18 @@ body {
 
 /* Blog & News */
 .blog-header {
-    position: relative;
-    z-index: 1;
+    text-align: center;
+    padding-top: 180px;
+    padding-bottom: 60px;
 }
 
-.blog-title {
-    font-size: 2.5rem;
-    color: var(--text-color);
-    margin-bottom: 2rem;
-    position: relative;
-    z-index: 1;
+.blog-header h1 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
 }
 
 .blog-grid {
-    position: relative;
-    z-index: 1;
-    padding: 120px 0 4rem 0;
+    padding-top: 180px;
 }
 
 /* Page Headers */
