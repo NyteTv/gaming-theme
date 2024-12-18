@@ -217,15 +217,16 @@ body {
 
 /* Navigation Styles */
 .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: var(--dark-color);
+    padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
-    background-color: var(--dark-color);
-    border-bottom: 1px solid var(--border-color);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    position: relative;
-    z-index: 1000;
 }
 
 .nav-brand .logo {
@@ -291,42 +292,26 @@ body {
     color: var(--text-color);
     font-size: 1.5rem;
     cursor: pointer;
-    padding: 0.5rem;
+    padding: 10px;
+    z-index: 1001;
 }
 
 .mobile-menu {
     display: none;
     position: fixed;
     top: 0;
-    left: 0;
-    width: 100%;
+    right: -100%;
+    width: 80%;
     height: 100vh;
     background-color: var(--dark-color);
-    border-left: 1px solid var(--border-color);
     z-index: 1000;
-    padding: 2rem;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    padding: 4rem 2rem 2rem;
+    transition: right 0.3s ease-in-out;
+    overflow-y: auto;
 }
 
-.mobile-menu .menu {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-    margin-top: 4rem;
-    padding: 0;
-    list-style: none;
-}
-
-.mobile-menu .menu a {
-    color: var(--text-color);
-    text-decoration: none;
-    font-size: 1.2rem;
-    transition: color 0.3s ease;
-}
-
-.mobile-menu .menu a:hover {
-    color: var(--primary-color);
+.mobile-menu.active {
+    right: 0;
 }
 
 .close-menu {
@@ -338,23 +323,38 @@ body {
     color: var(--text-color);
     font-size: 1.5rem;
     cursor: pointer;
-    padding: 0.5rem;
+    z-index: 1001;
 }
 
-/* Responsive Navigation */
-@media (max-width: 1024px) {
-    .desktop-menu {
-        display: none;
-    }
-    
+@media (max-width: 768px) {
     .menu-toggle {
         display: block;
     }
-}
 
-@media (min-width: 1025px) {
+    .desktop-menu {
+        display: none;
+    }
+
     .mobile-menu {
-        display: none !important;
+        display: block;
+    }
+
+    .mobile-menu .menu {
+        list-style: none;
+        padding: 0;
+        margin: 2rem 0;
+    }
+
+    .mobile-menu .menu li {
+        margin: 1rem 0;
+    }
+
+    .mobile-menu .menu a {
+        color: var(--text-color);
+        text-decoration: none;
+        font-size: 1.2rem;
+        display: block;
+        padding: 0.5rem 0;
     }
 }
 
@@ -2897,7 +2897,6 @@ body {
     padding: 0.3rem 0.8rem;
     border-radius: 15px;
     font-size: 0.8rem;
-    margin-top: 1rem;
 }
 
 /* No Games Message */
@@ -3245,6 +3244,7 @@ body {
     font-size: 1.5rem;
     cursor: pointer;
     padding: 10px;
+    z-index: 1001;
 }
 
 .mobile-menu {
@@ -3255,8 +3255,9 @@ body {
     height: 100vh;
     background-color: var(--dark-color);
     z-index: 1000;
-    padding: 2rem;
+    padding: 4rem 2rem 2rem;
     transition: right 0.3s ease-in-out;
+    overflow-y: auto;
 }
 
 .mobile-menu.active {
@@ -3272,6 +3273,7 @@ body {
     color: var(--text-color);
     font-size: 1.5rem;
     cursor: pointer;
+    z-index: 1001;
 }
 
 @media screen and (max-width: 768px) {

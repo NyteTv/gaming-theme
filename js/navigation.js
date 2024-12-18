@@ -30,27 +30,24 @@ document.addEventListener('DOMContentLoaded', function() {
     // Smooth Scrolling für Anker-Links
     document.querySelectorAll('a[href*="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
-            // Prüfe ob der Link zur Homepage führt oder ein interner Anker ist
-            const currentPath = window.location.pathname;
-            const linkPath = this.pathname;
-            const hash = this.hash;
-
-            // Wenn wir nicht auf der Homepage sind und der Link ein Anker ist
-            if (currentPath !== '/' && hash) {
-                // Navigiere zur Homepage mit dem Anker
-                window.location.href = '/' + hash;
+            const href = this.getAttribute('href');
+            
+            // Nur für interne Links
+            if (href.startsWith('#')) {
                 e.preventDefault();
-                return;
-            }
-
-            // Wenn wir auf der Homepage sind, scrolle smooth zum Anker
-            if (hash) {
-                e.preventDefault();
-                const targetElement = document.querySelector(hash);
+                const targetId = href.replace('#', '');
+                const targetElement = document.getElementById(targetId);
+                
                 if (targetElement) {
                     targetElement.scrollIntoView({
                         behavior: 'smooth'
                     });
+                    
+                    // Schließe das mobile Menü, wenn es offen ist
+                    if (mobileMenu && mobileMenu.classList.contains('active')) {
+                        mobileMenu.classList.remove('active');
+                        document.body.style.overflow = '';
+                    }
                 }
             }
         });
@@ -59,20 +56,22 @@ document.addEventListener('DOMContentLoaded', function() {
     // Aktive Navigation markieren
     function setActiveNavItem() {
         const sections = document.querySelectorAll('section[id]');
-        const navLinks = document.querySelectorAll('.nav-links a');
-
+        const navItems = document.querySelectorAll('.nav-links a');
+        
+        let currentSection = '';
+        
         sections.forEach(section => {
-            const sectionTop = section.offsetTop - 100;
-            const sectionHeight = section.offsetHeight;
-            const sectionId = section.getAttribute('id');
-
-            if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href').includes(sectionId)) {
-                        link.classList.add('active');
-                    }
-                });
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (window.pageYOffset >= sectionTop - 200) {
+                currentSection = section.getAttribute('id');
+            }
+        });
+        
+        navItems.forEach(item => {
+            item.classList.remove('active');
+            if (item.getAttribute('href').includes(currentSection)) {
+                item.classList.add('active');
             }
         });
     }

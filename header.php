@@ -42,7 +42,7 @@
         <a href="<?php echo esc_url(home_url('/')); ?>" class="logo">NYTE</a>
     </div>
     
-    <button class="menu-toggle">
+    <button class="menu-toggle" aria-label="Toggle Menu">
         <i class="fas fa-bars"></i>
     </button>
 
@@ -55,8 +55,9 @@
     ?>
 </nav>
 
+<!-- Mobile Menu -->
 <div class="mobile-menu">
-    <button class="close-menu">
+    <button class="close-menu" aria-label="Close Menu">
         <i class="fas fa-times"></i>
     </button>
     <?php
