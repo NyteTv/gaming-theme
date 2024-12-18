@@ -45,13 +45,22 @@
 <!-- Community Section -->
 <section id="community" class="community-section">
     <div class="container">
-        <h2 class="section-title">Community</h2>
-        <div class="discord-widget">
-            <?php if ($discord_id = get_theme_mod('discord_widget_id')) : ?>
-                <iframe src="https://discord.com/widget?id=<?php echo esc_attr($discord_id); ?>&theme=dark" 
-                        width="350" height="500" allowtransparency="true" frameborder="0" 
-                        sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts">
-                </iframe>
+        <h2><?php echo esc_html__('Community', 'gaming-website'); ?></h2>
+        <div class="social-links">
+            <?php if (get_theme_mod('twitch_url')) : ?>
+                <a href="<?php echo esc_url(get_theme_mod('twitch_url')); ?>" target="_blank" class="social-link twitch">
+                    <i class="fab fa-twitch"></i>
+                </a>
+            <?php endif; ?>
+            <?php if (get_theme_mod('youtube_url')) : ?>
+                <a href="<?php echo esc_url(get_theme_mod('youtube_url')); ?>" target="_blank" class="social-link youtube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+            <?php endif; ?>
+            <?php if (get_theme_mod('twitter_url')) : ?>
+                <a href="<?php echo esc_url(get_theme_mod('twitter_url')); ?>" target="_blank" class="social-link twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
             <?php endif; ?>
         </div>
     </div>
@@ -68,12 +77,6 @@
                     <?php if ($twitch_url = get_theme_mod('twitch_url')) : ?>
                         <a href="<?php echo esc_url($twitch_url); ?>" target="_blank" class="social-link twitch">
                             <i class="fab fa-twitch"></i>
-                        </a>
-                    <?php endif; ?>
-                    
-                    <?php if ($discord_url = get_theme_mod('discord_url')) : ?>
-                        <a href="<?php echo esc_url($discord_url); ?>" target="_blank" class="social-link discord">
-                            <i class="fab fa-discord"></i>
                         </a>
                     <?php endif; ?>
                     

@@ -466,14 +466,15 @@ body {
 }
 
 .social-link {
+    color: var(--text-color);
     font-size: 24px;
-    color: #ffffff;
+    margin: 0 10px;
     transition: color 0.3s ease;
 }
 
 .social-link.twitch:hover { color: #6441a5; }
-.social-link.discord:hover { color: #7289da; }
 .social-link.youtube:hover { color: #ff0000; }
+.social-link.twitter:hover { color: #1da1f2; }
 
 /* Contact Form 7 Styling */
 .wpcf7-form {

@@ -88,6 +88,39 @@ function gaming_website_customize_register($wp_customize) {
         'priority' => 25,
     ));
 
+    // Twitch URL
+    $wp_customize->add_setting('social_twitch', array(
+        'default'   => '',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control('social_twitch', array(
+        'label'    => __('Twitch URL', 'gaming-website'),
+        'section'  => 'social_media_settings',
+        'type'     => 'url',
+    ));
+
+    // YouTube URL
+    $wp_customize->add_setting('social_youtube', array(
+        'default'   => '',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control('social_youtube', array(
+        'label'    => __('YouTube URL', 'gaming-website'),
+        'section'  => 'social_media_settings',
+        'type'     => 'url',
+    ));
+
+    // Twitter URL
+    $wp_customize->add_setting('social_twitter', array(
+        'default'   => '',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control('social_twitter', array(
+        'label'    => __('Twitter URL', 'gaming-website'),
+        'section'  => 'social_media_settings',
+        'type'     => 'url',
+    ));
+
     // Stream Schedule Settings
     $wp_customize->add_section('stream_schedule_settings', array(
         'title'    => __('Stream Zeitplan', 'gaming-website'),
@@ -151,39 +184,6 @@ function gaming_website_customize_register($wp_customize) {
         ));
     }
 
-    // Twitch URL
-    $wp_customize->add_setting('social_twitch', array(
-        'default'   => '',
-        'transport' => 'refresh',
-    ));
-    $wp_customize->add_control('social_twitch', array(
-        'label'    => __('Twitch URL', 'gaming-website'),
-        'section'  => 'social_media_settings',
-        'type'     => 'url',
-    ));
-
-    // YouTube URL
-    $wp_customize->add_setting('social_youtube', array(
-        'default'   => '',
-        'transport' => 'refresh',
-    ));
-    $wp_customize->add_control('social_youtube', array(
-        'label'    => __('YouTube URL', 'gaming-website'),
-        'section'  => 'social_media_settings',
-        'type'     => 'url',
-    ));
-
-    // Twitter URL
-    $wp_customize->add_setting('social_twitter', array(
-        'default'   => '',
-        'transport' => 'refresh',
-    ));
-    $wp_customize->add_control('social_twitter', array(
-        'label'    => __('Twitter URL', 'gaming-website'),
-        'section'  => 'social_media_settings',
-        'type'     => 'url',
-    ));
-
     // Meta Description
     $wp_customize->add_setting('seo_description', array(
         'default'   => 'Gaming und Streaming Community - Let\'s Plays, Reviews und mehr',
@@ -236,14 +236,6 @@ function gaming_website_customize_register($wp_customize) {
         'type'     => 'url',
     ));
 
-    // Discord URL
-    $wp_customize->add_setting('discord_url');
-    $wp_customize->add_control('discord_url', array(
-        'label'    => __('Discord URL', 'gaming-website'),
-        'section'  => 'contact_section',
-        'type'     => 'url',
-    ));
-
     // YouTube URL
     $wp_customize->add_setting('youtube_url');
     $wp_customize->add_control('youtube_url', array(
@@ -281,19 +273,6 @@ function gaming_website_customize_register($wp_customize) {
     $wp_customize->add_control('twitch_username', array(
         'label'    => __('Twitch Benutzername', 'gaming-website'),
         'section'  => 'twitch_section',
-        'type'     => 'text',
-    ));
-
-    // Discord Integration
-    $wp_customize->add_section('discord_section', array(
-        'title'    => __('Discord Integration', 'gaming-website'),
-        'priority' => 37,
-    ));
-
-    $wp_customize->add_setting('discord_widget_id');
-    $wp_customize->add_control('discord_widget_id', array(
-        'label'    => __('Discord Widget ID', 'gaming-website'),
-        'section'  => 'discord_section',
         'type'     => 'text',
     ));
 
