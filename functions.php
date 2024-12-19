@@ -531,11 +531,11 @@ add_action('save_post_game', 'save_game_details');
 
 // Theme Scripts und Styles
 function gaming_website_scripts() {
-    // Theme Stylesheet (nur grundlegende Styles)
-    wp_enqueue_style('gaming-website-base', get_stylesheet_uri());
+    // Base Stylesheet (Reset und Variablen)
+    wp_enqueue_style('gaming-website-base', get_stylesheet_uri(), array(), '1.0');
     
-    // Hauptstylesheet
-    wp_enqueue_style('gaming-website-main', get_template_directory_uri() . '/css/style.css');
+    // Main Stylesheet (Komponenten und spezifische Styles)
+    wp_enqueue_style('gaming-website-main', get_template_directory_uri() . '/css/style.css', array('gaming-website-base'), '1.0');
     
     // Font Awesome
     wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css', array(), '6.5.1');
